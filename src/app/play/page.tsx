@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback, useRef, useEffect } from "react";
+import { useState, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import PageWrapper from "@/components/ui/PageWrapper";
@@ -8,55 +8,12 @@ import GlowButton from "@/components/ui/GlowButton";
 import { useGame } from "@/lib/game-context";
 import { getPlayerRole } from "@/lib/game-logic";
 
-const HOLD_DURATION = 1200; // ms
-
 export default function PlayPage() {
   const router = useRouter();
   const { gameState, nextPlayer, setPhase } = useGame();
-  const [isHolding, setIsHolding] = useState(false);
-  const [revealed, setRevealed] = useState(false);
-  const [holdProgress, setHoldProgress] = useState(0);
-  const holdTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const progressInterval = useRef<ReturnType<typeof setInterval> | null>(null);
-  const holdStartTime = useRef<number>(0);
+  const [isPeeking, setIsPeeking] = useState(false);
 
-  const clearTimers = useCallback(() => {
-    if (holdTimer.current) clearTimeout(holdTimer.current);
-    if (progressInterval.current) clearInterval(progressInterval.current);
-    holdTimer.current = null;
-    progressInterval.current = null;
-  }, []);
-
-  useEffect(() => {
-    return () => clearTimers();
-  }, [clearTimers]);
-
-  const startHold = useCallback(() => {
-    if (revealed) return;
-    setIsHolding(true);
-    holdStartTime.current = Date.now();
-
-    progressInterval.current = setInterval(() => {
-      const elapsed = Date.now() - holdStartTime.current;
-      setHoldProgress(Math.min(elapsed / HOLD_DURATION, 1));
-    }, 16);
-
-    holdTimer.current = setTimeout(() => {
-      setRevealed(true);
-      setIsHolding(false);
-      setHoldProgress(1);
-      clearTimers();
-    }, HOLD_DURATION);
-  }, [revealed, clearTimers]);
-
-  const endHold = useCallback(() => {
-    if (revealed) return;
-    setIsHolding(false);
-    setHoldProgress(0);
-    clearTimers();
-  }, [revealed, clearTimers]);
-
-  const handleGotIt = useCallback(() => {
+  const handleNext = useCallback(() => {
     if (!gameState) return;
     const isLast =
       gameState.currentPlayerIndex >= gameState.playerOrder.length - 1;
@@ -65,9 +22,7 @@ export default function PlayPage() {
     } else {
       nextPlayer();
     }
-    setRevealed(false);
-    setHoldProgress(0);
-    setIsHolding(false);
+    setIsPeeking(false);
   }, [gameState, nextPlayer, setPhase]);
 
   const handleRevealImposter = useCallback(() => {
@@ -90,12 +45,9 @@ export default function PlayPage() {
 
   const currentPlayer = gameState.playerOrder[gameState.currentPlayerIndex];
   const role = getPlayerRole(gameState, gameState.currentPlayerIndex);
-  const isFirst = gameState.currentPlayerIndex === 0;
   const isDiscussion = gameState.phase === "discussion";
-
-  // SVG circle properties for the hold ring
-  const circleRadius = 45;
-  const circumference = 2 * Math.PI * circleRadius;
+  const isLast =
+    gameState.currentPlayerIndex >= gameState.playerOrder.length - 1;
 
   return (
     <PageWrapper className="flex flex-col items-center justify-center px-6 safe-top safe-bottom">
@@ -126,7 +78,6 @@ export default function PlayPage() {
                 Discussion Time!
               </h2>
 
-              {/* Who starts first */}
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -146,7 +97,6 @@ export default function PlayPage() {
                 imposter!
               </p>
 
-              {/* Player order list */}
               <div className="w-full glass rounded-2xl p-4">
                 <h3 className="text-xs font-semibold text-foreground/40 uppercase tracking-wider mb-3">
                   Discussion Order
@@ -175,16 +125,17 @@ export default function PlayPage() {
                 <ConfirmRevealButton onConfirm={handleRevealImposter} />
               </div>
             </motion.div>
-          ) : !revealed ? (
-            /* HOLD TO REVEAL PHASE */
+          ) : (
+            /* CARD — hold to peek, release to hide */
             <motion.div
-              key={`ready-${currentPlayer.id}`}
+              key={`card-${currentPlayer.id}`}
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              exit={{ opacity: 0, x: -80 }}
+              transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
               className="flex flex-col items-center gap-6"
             >
+              {/* Player info */}
               <div className="text-center">
                 <p className="text-foreground/40 text-sm mb-1">
                   Player {gameState.currentPlayerIndex + 1} of{" "}
@@ -193,160 +144,104 @@ export default function PlayPage() {
                 <h2 className="text-3xl font-bold text-nova glow-text-nova">
                   {currentPlayer.name}
                 </h2>
-                {isFirst && (
-                  <motion.p
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.3 }}
-                    className="text-xs text-foreground/30 mt-2"
-                  >
-                    Pass the phone to each player
-                  </motion.p>
-                )}
               </div>
 
-              {/* Hold-to-reveal circle */}
-              <motion.div
-                className="relative w-56 h-56 flex items-center justify-center select-none"
-                onPointerDown={startHold}
-                onPointerUp={endHold}
-                onPointerLeave={endHold}
-                onPointerCancel={endHold}
-                style={{ touchAction: "none" }}
+              {/* The card — flips between front (hidden) and back (word) */}
+              <div
+                className="relative w-64 h-80 select-none"
+                style={{ perspective: "800px", touchAction: "none" }}
+                onPointerDown={() => setIsPeeking(true)}
+                onPointerUp={() => setIsPeeking(false)}
+                onPointerLeave={() => setIsPeeking(false)}
+                onPointerCancel={() => setIsPeeking(false)}
               >
-                {/* Background ring */}
-                <svg
-                  className="absolute inset-0 w-full h-full -rotate-90"
-                  viewBox="0 0 100 100"
-                >
-                  <circle
-                    cx="50"
-                    cy="50"
-                    r={circleRadius}
-                    fill="none"
-                    stroke="rgba(168, 85, 247, 0.1)"
-                    strokeWidth="3"
-                  />
-                  {/* Progress ring */}
-                  <circle
-                    cx="50"
-                    cy="50"
-                    r={circleRadius}
-                    fill="none"
-                    stroke={isHolding ? "#a855f7" : "rgba(168, 85, 247, 0.3)"}
-                    strokeWidth="3"
-                    strokeLinecap="round"
-                    strokeDasharray={circumference}
-                    strokeDashoffset={circumference * (1 - holdProgress)}
-                    style={{
-                      transition: isHolding
-                        ? "none"
-                        : "stroke-dashoffset 0.3s ease-out",
-                    }}
-                  />
-                </svg>
-
-                {/* Inner content */}
+                {/* Card container with 3D flip */}
                 <motion.div
-                  animate={
-                    isHolding ? { scale: 0.95 } : { scale: [1, 1.03, 1] }
-                  }
-                  transition={
-                    isHolding
-                      ? { duration: 0.15 }
-                      : { duration: 3, repeat: Infinity }
-                  }
-                  className={`w-44 h-44 rounded-full border-2 flex flex-col items-center justify-center gap-3
-                    cursor-pointer transition-all duration-300 backdrop-blur-sm
-                    ${
-                      isHolding
-                        ? "border-nova/60 bg-nova/10 glow-nova"
-                        : "border-border bg-glass hover:border-nova/30"
-                    }`}
+                  animate={{ rotateY: isPeeking ? 180 : 0 }}
+                  transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                  className="relative w-full h-full"
+                  style={{ transformStyle: "preserve-3d" }}
                 >
-                  <span className="text-4xl">{isHolding ? "👁️" : "🔒"}</span>
-                  <p className="text-foreground/50 text-sm font-medium">
-                    {isHolding ? "Keep holding..." : "Hold to reveal"}
-                  </p>
-                  <p className="text-foreground/25 text-[10px]">
-                    Only {currentPlayer.name} should look
-                  </p>
+                  {/* FRONT — hidden face */}
+                  <div
+                    className="absolute inset-0 rounded-3xl border-2 border-nova/30 bg-surface
+                      flex flex-col items-center justify-center gap-4 backdrop-blur-sm"
+                    style={{ backfaceVisibility: "hidden" }}
+                  >
+                    <motion.span
+                      animate={{ scale: [1, 1.08, 1] }}
+                      transition={{
+                        duration: 3,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                      }}
+                      className="text-5xl"
+                    >
+                      🔒
+                    </motion.span>
+                    <p className="text-foreground/50 text-sm font-medium">
+                      Hold to peek
+                    </p>
+                    <p className="text-foreground/25 text-xs">
+                      Only {currentPlayer.name} should look
+                    </p>
+                  </div>
+
+                  {/* BACK — revealed word or imposter */}
+                  <div
+                    className={`absolute inset-0 rounded-3xl border-2 flex flex-col items-center justify-center gap-4
+                      backdrop-blur-sm ${
+                        role.isImposter
+                          ? "border-rose bg-rose/10 glow-rose"
+                          : "border-mint bg-mint/10 glow-mint"
+                      }`}
+                    style={{
+                      backfaceVisibility: "hidden",
+                      transform: "rotateY(180deg)",
+                    }}
+                  >
+                    <p className="text-foreground/50 text-xs uppercase tracking-wider">
+                      {currentPlayer.name}
+                    </p>
+                    {role.isImposter ? (
+                      <>
+                        <span className="text-5xl">🕵️</span>
+                        <p className="text-2xl font-black text-rose glow-text-rose">
+                          IMPOSTER!
+                        </p>
+                        <p className="text-rose/50 text-xs px-6 text-center">
+                          You don&apos;t know the word. Blend in!
+                        </p>
+                      </>
+                    ) : (
+                      <>
+                        <p className="text-foreground/40 text-xs">
+                          Your word is
+                        </p>
+                        <div className="px-5 py-2.5 rounded-2xl border border-foreground/20 bg-background/40">
+                          <p className="text-2xl font-black text-mint glow-text-mint text-center">
+                            {role.word}
+                          </p>
+                        </div>
+                      </>
+                    )}
+                    <p className="text-foreground/25 text-xs mt-1">
+                      {gameState.categoryName}
+                    </p>
+                  </div>
                 </motion.div>
-              </motion.div>
-            </motion.div>
-          ) : (
-            /* REVEALED PHASE */
-            <motion.div
-              key={`reveal-${currentPlayer.id}`}
-              initial={{ opacity: 0, rotateY: 90 }}
-              animate={{ opacity: 1, rotateY: 0 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-              className="flex flex-col items-center gap-6"
-            >
-              <div className="text-center">
-                <p className="text-foreground/40 text-sm mb-1">
-                  {currentPlayer.name}
-                </p>
               </div>
 
-              {role.isImposter ? (
-                <motion.div
-                  initial={{ scale: 0.8 }}
-                  animate={{ scale: 1 }}
-                  transition={{ duration: 0.4, ease: "backOut" }}
-                  className="w-56 h-72 rounded-3xl border-2 border-rose bg-rose/10
-                    flex flex-col items-center justify-center gap-4 glow-rose backdrop-blur-sm"
-                >
-                  <motion.span
-                    animate={{ rotate: [0, 10, -10, 0] }}
-                    transition={{
-                      duration: 1.5,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    }}
-                    className="text-6xl"
-                  >
-                    🕵️
-                  </motion.span>
-                  <p className="text-2xl font-black text-rose glow-text-rose">
-                    IMPOSTER
-                  </p>
-                  <p className="text-rose/50 text-xs px-4 text-center">
-                    You don&apos;t know the word. Blend in!
-                  </p>
-                  <p className="text-foreground/30 text-xs">
-                    Category: {gameState.categoryName}
-                  </p>
-                </motion.div>
-              ) : (
-                <motion.div
-                  initial={{ scale: 0.8 }}
-                  animate={{ scale: 1 }}
-                  transition={{ duration: 0.4, ease: "backOut" }}
-                  className="w-56 h-72 rounded-3xl border-2 border-mint bg-mint/10
-                    flex flex-col items-center justify-center gap-4 glow-mint backdrop-blur-sm"
-                >
-                  <span className="text-4xl">✅</span>
-                  <p className="text-foreground/40 text-xs">Your word is</p>
-                  <p className="text-2xl font-black text-mint glow-text-mint text-center px-4">
-                    {role.word}
-                  </p>
-                  <p className="text-foreground/30 text-xs">
-                    Category: {gameState.categoryName}
-                  </p>
-                </motion.div>
-              )}
-
+              {/* Next player button */}
               <GlowButton
-                color={role.isImposter ? "rose" : "mint"}
+                color={isLast ? "ember" : "nova"}
                 size="lg"
                 className="w-full text-center"
-                onClick={handleGotIt}
+                onClick={handleNext}
               >
-                {gameState.currentPlayerIndex < gameState.playerOrder.length - 1
-                  ? `Pass to ${gameState.playerOrder[gameState.currentPlayerIndex + 1]?.name} →`
-                  : "Start Discussion 💬"}
+                {isLast
+                  ? "Start Discussion 💬"
+                  : `Next → ${gameState.playerOrder[gameState.currentPlayerIndex + 1]?.name}`}
               </GlowButton>
             </motion.div>
           )}

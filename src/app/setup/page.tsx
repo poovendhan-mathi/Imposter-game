@@ -2,18 +2,21 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import PageWrapper from "@/components/ui/PageWrapper";
 import GlowButton from "@/components/ui/GlowButton";
 import CategoryCard from "@/components/ui/CategoryCard";
-import PlayerChip from "@/components/ui/PlayerChip";
 import { useGame } from "@/lib/game-context";
 import { getAllCategories } from "@/lib/game-logic";
-import { getPresetPlayers, savePresetPlayers } from "@/lib/storage";
-import { Player, Category, DEFAULT_PRESET_NAMES } from "@/lib/types";
+import { getPresetPlayers } from "@/lib/storage";
+import { Player, Category } from "@/lib/types";
 
-function generateId() {
-  return Math.random().toString(36).substring(2, 9);
+const SELECTED_IDS_KEY = "imposter-selected-player-ids";
+
+function loadSelectedIds(): Set<string> {
+  if (typeof window === "undefined") return new Set();
+  const data = localStorage.getItem(SELECTED_IDS_KEY);
+  return data ? new Set(JSON.parse(data)) : new Set();
 }
 
 export default function SetupPage() {
@@ -24,75 +27,26 @@ export default function SetupPage() {
   const [selectedPlayerIds, setSelectedPlayerIds] = useState<Set<string>>(
     new Set(),
   );
-  const [newPlayerName, setNewPlayerName] = useState("");
   const [categories, setCategories] = useState<Category[]>([]);
   const [selectedCategoryIds, setSelectedCategoryIds] = useState<Set<string>>(
     new Set(),
   );
   const [imposterCount, setImposterCount] = useState<1 | 2>(1);
-  const [showSuggestions, setShowSuggestions] = useState(false);
 
   useEffect(() => {
     const preset = getPresetPlayers();
-    if (preset.length > 0) {
-      setPlayers(preset);
+    setPlayers(preset);
+    const savedIds = loadSelectedIds();
+    if (savedIds.size > 0) {
+      // Only keep IDs that still exist
+      const validIds = new Set(
+        [...savedIds].filter((id) => preset.some((p) => p.id === id)),
+      );
+      setSelectedPlayerIds(validIds);
+    } else if (preset.length > 0) {
       setSelectedPlayerIds(new Set(preset.map((p) => p.id)));
     }
     setCategories(getAllCategories());
-  }, []);
-
-  // Filter out names already in the players list for suggestions
-  const availableSuggestions = DEFAULT_PRESET_NAMES.filter(
-    (name) => !players.some((p) => p.name.toLowerCase() === name.toLowerCase()),
-  );
-
-  const addPlayer = useCallback(() => {
-    const name = newPlayerName.trim();
-    if (!name || name.length > 15) return;
-    if (players.some((p) => p.name.toLowerCase() === name.toLowerCase()))
-      return;
-    const id = generateId();
-    const newPlayer = { id, name };
-    const updated = [...players, newPlayer];
-    setPlayers(updated);
-    setSelectedPlayerIds((prev) => new Set([...prev, id]));
-    savePresetPlayers(updated);
-    setNewPlayerName("");
-  }, [newPlayerName, players]);
-
-  const addSuggestedPlayer = useCallback(
-    (name: string) => {
-      const id = generateId();
-      const newPlayer = { id, name };
-      const updated = [...players, newPlayer];
-      setPlayers(updated);
-      setSelectedPlayerIds((prev) => new Set([...prev, id]));
-      savePresetPlayers(updated);
-    },
-    [players],
-  );
-
-  const deletePlayer = useCallback(
-    (id: string) => {
-      const updated = players.filter((p) => p.id !== id);
-      setPlayers(updated);
-      setSelectedPlayerIds((prev) => {
-        const next = new Set(prev);
-        next.delete(id);
-        return next;
-      });
-      savePresetPlayers(updated);
-    },
-    [players],
-  );
-
-  const togglePlayer = useCallback((id: string) => {
-    setSelectedPlayerIds((prev) => {
-      const next = new Set(prev);
-      if (next.has(id)) next.delete(id);
-      else next.add(id);
-      return next;
-    });
   }, []);
 
   const toggleCategory = useCallback((id: string) => {
@@ -146,92 +100,38 @@ export default function SetupPage() {
           </h1>
         </div>
 
-        {/* Players Section */}
-        <section className="flex flex-col gap-3">
-          <div className="flex items-center justify-between">
+        {/* Players — tap to manage */}
+        <motion.button
+          whileTap={{ scale: 0.98 }}
+          onClick={() => router.push("/players")}
+          className="flex items-center justify-between w-full px-4 py-4 rounded-2xl
+            border border-border bg-glass backdrop-blur-sm cursor-pointer
+            hover:border-nova/30 transition-all"
+        >
+          <div className="flex flex-col items-start gap-1">
             <h2 className="text-sm font-semibold text-foreground/70 uppercase tracking-wider">
-              Players ({selectedPlayers.length})
+              Players
             </h2>
-            {selectedPlayers.length < 3 && (
-              <span className="text-xs text-rose/70">Min 3 required</span>
-            )}
+            <span className="text-sm text-foreground/50">
+              {selectedPlayers.length > 0
+                ? selectedPlayers.map((p) => p.name).join(", ")
+                : "Tap to add players"}
+            </span>
           </div>
-
-          {/* Player chips */}
-          <div className="flex flex-wrap gap-2">
-            <AnimatePresence>
-              {players.map((player) => (
-                <PlayerChip
-                  key={player.id}
-                  name={player.name}
-                  selected={selectedPlayerIds.has(player.id)}
-                  onToggle={() => togglePlayer(player.id)}
-                  onDelete={() => deletePlayer(player.id)}
-                />
-              ))}
-            </AnimatePresence>
-          </div>
-
-          {/* Suggested names */}
-          {availableSuggestions.length > 0 && (
-            <div className="flex flex-col gap-1.5">
-              <button
-                onClick={() => setShowSuggestions(!showSuggestions)}
-                className="text-xs text-nova/50 hover:text-nova/80 transition-colors text-left cursor-pointer"
-              >
-                {showSuggestions ? "▾ Hide" : "▸ Quick add"} suggestions
-              </button>
-              <AnimatePresence>
-                {showSuggestions && (
-                  <motion.div
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: "auto" }}
-                    exit={{ opacity: 0, height: 0 }}
-                    className="flex flex-wrap gap-1.5 overflow-hidden"
-                  >
-                    {availableSuggestions.map((name) => (
-                      <motion.button
-                        key={name}
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        whileTap={{ scale: 0.9 }}
-                        onClick={() => addSuggestedPlayer(name)}
-                        className="px-3 py-1.5 rounded-full border border-dashed border-nova/25
-                          bg-nova/5 text-xs text-nova/70 hover:bg-nova/10 hover:border-nova/40
-                          transition-all cursor-pointer"
-                      >
-                        + {name}
-                      </motion.button>
-                    ))}
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-          )}
-
-          {/* Add player */}
-          <div className="flex gap-2">
-            <input
-              type="text"
-              value={newPlayerName}
-              onChange={(e) => setNewPlayerName(e.target.value)}
-              onKeyDown={(e) => e.key === "Enter" && addPlayer()}
-              placeholder="Player name..."
-              maxLength={15}
-              className="flex-1 bg-surface border border-border rounded-2xl px-4 py-2.5
-                text-sm text-foreground placeholder:text-foreground/30
-                focus:border-nova/40 focus:outline-none transition-colors"
-            />
-            <GlowButton
-              color="nova"
-              size="sm"
-              onClick={addPlayer}
-              disabled={!newPlayerName.trim()}
+          <div className="flex items-center gap-2">
+            <span
+              className={`text-lg font-bold ${selectedPlayers.length >= 3 ? "text-nova" : "text-rose/70"}`}
             >
-              Add
-            </GlowButton>
+              {selectedPlayers.length}
+            </span>
+            <span className="text-foreground/30 text-lg">›</span>
           </div>
-        </section>
+        </motion.button>
+        {selectedPlayers.length < 3 && (
+          <p className="text-xs text-rose/60 -mt-3 ml-1">
+            Min 3 players required
+          </p>
+        )}
 
         {/* Category Section — multi-select */}
         <section className="flex flex-col gap-3">
