@@ -176,87 +176,84 @@ export default function PlayPage() {
 
               <div
                 className="relative w-[15.5rem] h-[18.5rem] select-none"
-                style={{ perspective: "900px", touchAction: "none" }}
+                style={{ touchAction: "none" }}
                 onPointerDown={() => setIsPeeking(true)}
                 onPointerUp={() => setIsPeeking(false)}
                 onPointerLeave={() => setIsPeeking(false)}
                 onPointerCancel={() => setIsPeeking(false)}
               >
                 <motion.div
-                  animate={{ rotateY: isPeeking ? 180 : 0 }}
-                  transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-                  className="relative w-full h-full"
-                  style={{ transformStyle: "preserve-3d" }}
+                  animate={{ scale: isPeeking ? 1 : 0.985 }}
+                  transition={{ duration: 0.18, ease: [0.22, 1, 0.36, 1] }}
+                  className={`relative w-full h-full rounded-[1.8rem] border border-[#242424]/12 shadow-[0_14px_30px_rgba(37,35,33,0.1)] ${
+                    isPeeking
+                      ? role.isImposter
+                        ? "bg-rose"
+                        : "bg-ice"
+                      : "bg-white"
+                  }`}
                 >
-                  <div
-                    className="absolute inset-0 rounded-[1.2rem] border border-[#242424]/12 bg-white
-                      flex flex-col items-center justify-center gap-5 overflow-hidden"
-                    style={{ backfaceVisibility: "hidden" }}
-                  >
-                    <div className="relative z-10 flex flex-col items-center gap-4 px-6">
-                      <div className="w-20 h-20 rounded-full bg-[#f4f4f1] border border-border flex items-center justify-center">
-                        <span className="text-4xl">🔒</span>
-                      </div>
-                      <div className="text-center">
-                        <p className="text-foreground/60 text-sm font-semibold">
-                          Hold to Peek
+                  <AnimatePresence mode="wait">
+                    {isPeeking ? (
+                      <motion.div
+                        key="revealed"
+                        initial={{ opacity: 0, scale: 0.92 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.96 }}
+                        transition={{ duration: 0.18 }}
+                        className="absolute inset-0 flex flex-col items-center justify-center gap-5 px-6 text-center"
+                      >
+                        <p className="text-[2rem] font-black text-foreground uppercase leading-none">
+                          {currentPlayer.name}
                         </p>
-                        <p className="text-foreground/25 text-xs mt-1">
-                          Only {currentPlayer.name} should look
-                        </p>
-                      </div>
-                    </div>
-                  </div>
 
-                  <div
-                    className={`absolute inset-0 rounded-[1.2rem] border border-[#242424]/12 flex flex-col items-center justify-center overflow-hidden ${
-                      role.isImposter ? "bg-rose" : "bg-ice"
-                    }`}
-                    style={{
-                      backfaceVisibility: "hidden",
-                      transform: "rotateY(180deg)",
-                    }}
-                  >
-                    <div className="relative z-10 flex flex-col items-center gap-5 px-6 text-center w-full">
-                      <p className="text-[2rem] font-black text-foreground uppercase leading-none">
-                        {currentPlayer.name}
-                      </p>
-
-                      {role.isImposter ? (
-                        <>
-                          <div className="rounded-2xl border border-[#242424] bg-white px-4 py-3 shadow-[0_6px_14px_rgba(37,35,33,0.08)] max-w-[12rem]">
-                            <p className="text-xl font-black text-[#ff3d30] leading-tight uppercase">
-                              You Are The Imposter!
-                            </p>
-                          </div>
-                          <div className="w-full mt-1 rounded-2xl border border-[#242424]/10 bg-white/55 px-4 py-3">
-                            <p className="text-[10px] text-foreground/45 uppercase tracking-widest font-semibold mb-1.5">
-                              Your Hint
-                            </p>
-                            <div className="flex items-center justify-center gap-2">
-                              <span className="text-2xl">
-                                {gameState.categoryIcon}
-                              </span>
-                              <span className="text-lg font-bold text-foreground">
-                                {role.hint}
-                              </span>
+                        {role.isImposter ? (
+                          <>
+                            <div className="rounded-2xl border border-[#242424] bg-white px-4 py-3 shadow-[0_6px_14px_rgba(37,35,33,0.08)] max-w-[12rem]">
+                              <p className="text-xl font-black text-[#ff3d30] leading-tight uppercase">
+                                You Are The Imposter!
+                              </p>
                             </div>
-                            <p className="text-[10px] text-foreground/35 mt-2 text-center">
-                              Use this to blend in during discussion
-                            </p>
-                          </div>
-                        </>
-                      ) : (
-                        <>
+                            <div className="w-full rounded-2xl border border-[#242424]/10 bg-white/70 px-4 py-3">
+                              <p className="text-[10px] text-foreground/45 uppercase tracking-widest font-semibold mb-2">
+                                Your Hint
+                              </p>
+                              <p className="text-lg font-bold text-foreground leading-snug">
+                                {role.hint}
+                              </p>
+                            </div>
+                          </>
+                        ) : (
                           <div className="rounded-2xl border border-[#242424] bg-white min-w-[8.5rem] px-5 py-2.5 shadow-[0_6px_14px_rgba(37,35,33,0.08)]">
                             <p className="text-2xl font-black text-foreground text-center leading-none">
                               {role.word}
                             </p>
                           </div>
-                        </>
-                      )}
-                    </div>
-                  </div>
+                        )}
+                      </motion.div>
+                    ) : (
+                      <motion.div
+                        key="hidden"
+                        initial={{ opacity: 0, scale: 0.96 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.96 }}
+                        transition={{ duration: 0.18 }}
+                        className="absolute inset-0 flex flex-col items-center justify-center gap-5 px-6 text-center"
+                      >
+                        <div className="w-20 h-20 rounded-full bg-[#f4f4f1] border border-border shadow-[0_8px_20px_rgba(37,35,33,0.08)] flex items-center justify-center">
+                          <span className="text-4xl">🔒</span>
+                        </div>
+                        <div>
+                          <p className="text-foreground/65 text-sm font-semibold uppercase tracking-[0.18em]">
+                            Hold To Peek
+                          </p>
+                          <p className="text-foreground/30 text-xs mt-2">
+                            Only {currentPlayer.name} should look
+                          </p>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </motion.div>
               </div>
 

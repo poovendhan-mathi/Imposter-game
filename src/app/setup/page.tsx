@@ -43,8 +43,8 @@ export default function SetupPage() {
         [...savedIds].filter((id) => preset.some((p) => p.id === id)),
       );
       setSelectedPlayerIds(validIds);
-    } else if (preset.length > 0) {
-      setSelectedPlayerIds(new Set(preset.map((p) => p.id)));
+    } else {
+      setSelectedPlayerIds(new Set());
     }
     setCategories(getAllCategories());
   }, []);

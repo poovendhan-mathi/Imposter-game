@@ -1,6 +1,20 @@
 import { GameConfig, GameState, Category } from "./types";
 import builtInCategories from "@/data/categories.json";
+import wordHints from "@/data/word-hints.json";
 import { getCustomCategories } from "./storage";
+
+type WordHintEntry = {
+  categoryId: string;
+  word: string;
+  hint: string;
+};
+
+const wordHintLookup = new Map(
+  (wordHints as WordHintEntry[]).map((entry) => [
+    `${entry.categoryId}::${entry.word}`,
+    entry.hint,
+  ]),
+);
 
 export function getAllCategories(): Category[] {
   const custom = getCustomCategories().map((c) => ({ ...c, isCustom: true }));
@@ -44,6 +58,8 @@ export function initGame(config: GameConfig): GameState {
   // Pick a random category from selected, then a random word
   const category = selectedCategories[secureRandom(selectedCategories.length)];
   const word = category.words[secureRandom(category.words.length)];
+  const wordHint =
+    wordHintLookup.get(`${category.id}::${word}`) ?? "Related clue unavailable";
 
   // Cryptographically shuffle players for play order
   const playerOrder = secureShuffle(config.players);
@@ -60,6 +76,7 @@ export function initGame(config: GameConfig): GameState {
   return {
     config,
     word,
+    wordHint,
     categoryName: category.name,
     categoryIcon: category.icon,
     imposterIds,
@@ -80,6 +97,6 @@ export function getPlayerRole(
   return {
     isImposter,
     word: isImposter ? "" : state.word,
-    hint: state.categoryName,
+    hint: state.wordHint,
   };
 }

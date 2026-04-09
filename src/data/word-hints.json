@@ -1,0 +1,1307 @@
+[
+  { "categoryId": "tamil-food", "word": "Dosa", "hint": "Rice crepe" },
+  { "categoryId": "tamil-food", "word": "Idli", "hint": "Lentil cake" },
+  { "categoryId": "tamil-food", "word": "Sambar", "hint": "Vegetable stew" },
+  { "categoryId": "tamil-food", "word": "Rasam", "hint": "Spice soup" },
+  { "categoryId": "tamil-food", "word": "Pongal", "hint": "Rice dish" },
+  { "categoryId": "tamil-food", "word": "Vada", "hint": "Lentil doughnut" },
+  { "categoryId": "tamil-food", "word": "Upma", "hint": "Semolina porridge" },
+  { "categoryId": "tamil-food", "word": "Puttu", "hint": "Rice cake" },
+  { "categoryId": "tamil-food", "word": "Appam", "hint": "Rice crepe" },
+  {
+    "categoryId": "tamil-food",
+    "word": "Kothu Parotta",
+    "hint": "Shredded flatbread"
+  },
+  { "categoryId": "tamil-food", "word": "Biryani", "hint": "Layered rice" },
+  { "categoryId": "tamil-food", "word": "Parotta", "hint": "Flaky flatbread" },
+  {
+    "categoryId": "tamil-food",
+    "word": "Chicken 65",
+    "hint": "Fried appetizer"
+  },
+  { "categoryId": "tamil-food", "word": "Paniyaram", "hint": "Sweet snack" },
+  {
+    "categoryId": "tamil-food",
+    "word": "Kozhukattai",
+    "hint": "Rice dumpling"
+  },
+  { "categoryId": "tamil-food", "word": "Payasam", "hint": "Creamy dessert" },
+  { "categoryId": "tamil-food", "word": "Murukku", "hint": "Savory snack" },
+  { "categoryId": "tamil-food", "word": "Adhirasam", "hint": "Jaggery sweet" },
+  {
+    "categoryId": "tamil-food",
+    "word": "Jigarthanda",
+    "hint": "Almond beverage"
+  },
+  {
+    "categoryId": "tamil-food",
+    "word": "Filter Coffee",
+    "hint": "Morning brew"
+  },
+  { "categoryId": "tamil-food", "word": "Chettinad", "hint": "Spiced chicken" },
+  { "categoryId": "tamil-food", "word": "Avial", "hint": "Coconut vegetable" },
+  { "categoryId": "tamil-food", "word": "Kuzhambu", "hint": "Vegetable curry" },
+  {
+    "categoryId": "tamil-food",
+    "word": "Poriyal",
+    "hint": "Stir-fried vegetables"
+  },
+  { "categoryId": "tamil-food", "word": "Thayir Sadam", "hint": "Yogurt rice" },
+  { "categoryId": "tamil-food", "word": "Sundal", "hint": "Legume salad" },
+  { "categoryId": "tamil-food", "word": "Bajji", "hint": "Vegetable fritter" },
+  { "categoryId": "tamil-food", "word": "Bonda", "hint": "Potato fritter" },
+  {
+    "categoryId": "tamil-food",
+    "word": "Kara Kulambu",
+    "hint": "Bitter vegetable"
+  },
+  { "categoryId": "tamil-food", "word": "Uthappam", "hint": "Thick rice" },
+  { "categoryId": "tamil-food", "word": "Idiyappam", "hint": "Rice noodle" },
+  {
+    "categoryId": "tamil-food",
+    "word": "Dosai Maavu",
+    "hint": "Ground batter"
+  },
+  { "categoryId": "tamil-food", "word": "Chutney", "hint": "Herb paste" },
+  { "categoryId": "tamil-food", "word": "Vathal", "hint": "Vegetable pickle" },
+  { "categoryId": "tamil-food", "word": "Papadam", "hint": "Lentil wafer" },
+  { "categoryId": "tamil-movies", "word": "Baahubali", "hint": "Fantasy epic" },
+  { "categoryId": "tamil-movies", "word": "Vikram", "hint": "Spy thriller" },
+  { "categoryId": "tamil-movies", "word": "Master", "hint": "Gangster drama" },
+  {
+    "categoryId": "tamil-movies",
+    "word": "Jailer",
+    "hint": "Prison blockbuster"
+  },
+  {
+    "categoryId": "tamil-movies",
+    "word": "Ponniyin Selvan",
+    "hint": "Historical epic"
+  },
+  { "categoryId": "tamil-movies", "word": "Enthiran", "hint": "Sci-fi robot" },
+  {
+    "categoryId": "tamil-movies",
+    "word": "Indian",
+    "hint": "Revenge thriller"
+  },
+  { "categoryId": "tamil-movies", "word": "Roja", "hint": "Patriotic romance" },
+  { "categoryId": "tamil-movies", "word": "Bombay", "hint": "Love story" },
+  { "categoryId": "tamil-movies", "word": "Nayakan", "hint": "Crime drama" },
+  {
+    "categoryId": "tamil-movies",
+    "word": "Anniyan",
+    "hint": "Vigilante thriller"
+  },
+  { "categoryId": "tamil-movies", "word": "Ghilli", "hint": "Rural sports" },
+  {
+    "categoryId": "tamil-movies",
+    "word": "Mankatha",
+    "hint": "Casino robbery"
+  },
+  { "categoryId": "tamil-movies", "word": "Kaththi", "hint": "Bank robbery" },
+  {
+    "categoryId": "tamil-movies",
+    "word": "Theri",
+    "hint": "Cop father-daughter"
+  },
+  {
+    "categoryId": "tamil-movies",
+    "word": "Sivaji",
+    "hint": "Corruption drama"
+  },
+  {
+    "categoryId": "tamil-movies",
+    "word": "Padayappa",
+    "hint": "Romantic revenge"
+  },
+  { "categoryId": "tamil-movies", "word": "Muthu", "hint": "Dance romance" },
+  { "categoryId": "tamil-movies", "word": "Asuran", "hint": "Revenge saga" },
+  {
+    "categoryId": "tamil-movies",
+    "word": "Pariyerum Perumal",
+    "hint": "Caste discrimination"
+  },
+  {
+    "categoryId": "tamil-movies",
+    "word": "Vada Chennai",
+    "hint": "Crime trilogy"
+  },
+  {
+    "categoryId": "tamil-movies",
+    "word": "Super Deluxe",
+    "hint": "Anthology drama"
+  },
+  {
+    "categoryId": "tamil-movies",
+    "word": "Sarpatta",
+    "hint": "Boxing chronicles"
+  },
+  { "categoryId": "tamil-movies", "word": "Karnan", "hint": "Resistance film" },
+  {
+    "categoryId": "tamil-movies",
+    "word": "Jai Bhim",
+    "hint": "Justice inquiry"
+  },
+  {
+    "categoryId": "tamil-movies",
+    "word": "Mersal",
+    "hint": "Corruption exposure"
+  },
+  { "categoryId": "tamil-movies", "word": "Bigil", "hint": "Football sports" },
+  {
+    "categoryId": "tamil-movies",
+    "word": "Sarkar",
+    "hint": "Corporate thriller"
+  },
+  { "categoryId": "tamil-movies", "word": "Leo", "hint": "Gangster crime" },
+  { "categoryId": "tamil-movies", "word": "GOAT", "hint": "Dual role" },
+  {
+    "categoryId": "tamil-movies",
+    "word": "Kaithi",
+    "hint": "Prison-break thriller"
+  },
+  { "categoryId": "tamil-movies", "word": "Maanaadu", "hint": "Time loop" },
+  { "categoryId": "tamil-movies", "word": "Beast", "hint": "Action rampage" },
+  {
+    "categoryId": "tamil-movies",
+    "word": "Varisu",
+    "hint": "Succession drama"
+  },
+  { "categoryId": "tamil-movies", "word": "Thunivu", "hint": "Gold heist" },
+  { "categoryId": "tamil-actors", "word": "Rajini", "hint": "Superstar icon" },
+  {
+    "categoryId": "tamil-actors",
+    "word": "Kamal",
+    "hint": "Multi-talented actor"
+  },
+  { "categoryId": "tamil-actors", "word": "Vijay", "hint": "Mass action" },
+  {
+    "categoryId": "tamil-actors",
+    "word": "Ajith",
+    "hint": "Riding enthusiast"
+  },
+  {
+    "categoryId": "tamil-actors",
+    "word": "Suriya",
+    "hint": "Intense performer"
+  },
+  {
+    "categoryId": "tamil-actors",
+    "word": "Dhanush",
+    "hint": "Award-winning performer"
+  },
+  {
+    "categoryId": "tamil-actors",
+    "word": "Vikram",
+    "hint": "Thriller specialist"
+  },
+  { "categoryId": "tamil-actors", "word": "Karthi", "hint": "Character actor" },
+  {
+    "categoryId": "tamil-actors",
+    "word": "Sivakarthikeyan",
+    "hint": "Comedy hero"
+  },
+  {
+    "categoryId": "tamil-actors",
+    "word": "Vijay Sethupathi",
+    "hint": "Gray character"
+  },
+  { "categoryId": "tamil-actors", "word": "STR", "hint": "Youth icon" },
+  {
+    "categoryId": "tamil-actors",
+    "word": "Madhavan",
+    "hint": "Romantic gentleman"
+  },
+  { "categoryId": "tamil-actors", "word": "Arya", "hint": "Raw performer" },
+  { "categoryId": "tamil-actors", "word": "Vishal", "hint": "Action hero" },
+  {
+    "categoryId": "tamil-actors",
+    "word": "Jayam Ravi",
+    "hint": "Action drama"
+  },
+  {
+    "categoryId": "tamil-actors",
+    "word": "Prashanth",
+    "hint": "Romantic actor"
+  },
+  {
+    "categoryId": "tamil-actors",
+    "word": "Prabhu Deva",
+    "hint": "Choreographer actor"
+  },
+  { "categoryId": "tamil-actors", "word": "Sarathkumar", "hint": "Icon rival" },
+  {
+    "categoryId": "tamil-actors",
+    "word": "Parthiban",
+    "hint": "Artistic performer"
+  },
+  {
+    "categoryId": "tamil-actors",
+    "word": "SJ Suryah",
+    "hint": "Comedy master"
+  },
+  {
+    "categoryId": "tamil-actors",
+    "word": "Udhayanidhi",
+    "hint": "Progressive hero"
+  },
+  { "categoryId": "tamil-actors", "word": "Atharvaa", "hint": "Action actor" },
+  {
+    "categoryId": "tamil-actors",
+    "word": "Arun Vijay",
+    "hint": "Thriller hero"
+  },
+  {
+    "categoryId": "tamil-actors",
+    "word": "Jiiva",
+    "hint": "Romantic performer"
+  },
+  {
+    "categoryId": "tamil-actors",
+    "word": "Santhanam",
+    "hint": "Comedy sidekick"
+  },
+  {
+    "categoryId": "tamil-actors",
+    "word": "Vadivelu",
+    "hint": "Slapstick master"
+  },
+  { "categoryId": "tamil-actors", "word": "Vivek", "hint": "Witty comedian" },
+  { "categoryId": "tamil-actors", "word": "Senthil", "hint": "Comedy duo" },
+  {
+    "categoryId": "tamil-actors",
+    "word": "Goundamani",
+    "hint": "Comedic legend"
+  },
+  {
+    "categoryId": "tamil-actors",
+    "word": "Kovai Sarala",
+    "hint": "Comedy actress"
+  },
+  { "categoryId": "cricket", "word": "Dhoni", "hint": "Captain cool" },
+  { "categoryId": "cricket", "word": "Sachin", "hint": "Batting god" },
+  { "categoryId": "cricket", "word": "Virat", "hint": "Modern champion" },
+  { "categoryId": "cricket", "word": "Rohit", "hint": "Opening batsman" },
+  { "categoryId": "cricket", "word": "Bumrah", "hint": "Death bowler" },
+  { "categoryId": "cricket", "word": "Ashwin", "hint": "Spinning all-rounder" },
+  { "categoryId": "cricket", "word": "Jadeja", "hint": "All-round fielder" },
+  { "categoryId": "cricket", "word": "Gambhir", "hint": "Opening batsman" },
+  { "categoryId": "cricket", "word": "Sehwag", "hint": "Fearless batsman" },
+  { "categoryId": "cricket", "word": "Dravid", "hint": "Test batsman" },
+  { "categoryId": "cricket", "word": "Six", "hint": "Boundary runs" },
+  { "categoryId": "cricket", "word": "Wicket", "hint": "Batsman dismissal" },
+  { "categoryId": "cricket", "word": "Bouncer", "hint": "Shoulder delivery" },
+  { "categoryId": "cricket", "word": "Yorker", "hint": "Toe-crushing ball" },
+  { "categoryId": "cricket", "word": "LBW", "hint": "Leg dismissal" },
+  { "categoryId": "cricket", "word": "IPL", "hint": "Twenty20 league" },
+  { "categoryId": "cricket", "word": "CSK", "hint": "Yellow jersey" },
+  { "categoryId": "cricket", "word": "MI", "hint": "Mumbai Indians" },
+  { "categoryId": "cricket", "word": "RCB", "hint": "Bangalore red" },
+  { "categoryId": "cricket", "word": "KKR", "hint": "Kolkata purple" },
+  { "categoryId": "cricket", "word": "Test Match", "hint": "Five-day game" },
+  { "categoryId": "cricket", "word": "ODI", "hint": "Fifty-over match" },
+  { "categoryId": "cricket", "word": "T20", "hint": "Twenty-over format" },
+  {
+    "categoryId": "cricket",
+    "word": "World Cup",
+    "hint": "Cricket championship"
+  },
+  { "categoryId": "cricket", "word": "Ashes", "hint": "England Australia" },
+  { "categoryId": "cricket", "word": "Spin", "hint": "Rotational bowling" },
+  { "categoryId": "cricket", "word": "Pace", "hint": "Fast bowling" },
+  { "categoryId": "cricket", "word": "Batting", "hint": "Hitting ball" },
+  { "categoryId": "cricket", "word": "Bowling", "hint": "Throwing delivery" },
+  { "categoryId": "cricket", "word": "Fielding", "hint": "Catching field" },
+  { "categoryId": "cricket", "word": "Stumps", "hint": "Wicket posts" },
+  { "categoryId": "cricket", "word": "Crease", "hint": "Batting line" },
+  { "categoryId": "cricket", "word": "No Ball", "hint": "Invalid delivery" },
+  { "categoryId": "cricket", "word": "Wide", "hint": "Outside zone" },
+  { "categoryId": "cricket", "word": "Run Out", "hint": "Base dismissal" },
+  { "categoryId": "places", "word": "Chennai", "hint": "Capital port" },
+  { "categoryId": "places", "word": "Madurai", "hint": "Temple city" },
+  { "categoryId": "places", "word": "Trichy", "hint": "Rock fort" },
+  { "categoryId": "places", "word": "Coimbatore", "hint": "Textile hub" },
+  { "categoryId": "places", "word": "Salem", "hint": "Steel city" },
+  {
+    "categoryId": "places",
+    "word": "Tirunelveli",
+    "hint": "Southern district"
+  },
+  {
+    "categoryId": "places",
+    "word": "Kanyakumari",
+    "hint": "Southernmost cape"
+  },
+  { "categoryId": "places", "word": "Thanjavur", "hint": "Cultural hub" },
+  { "categoryId": "places", "word": "Pondicherry", "hint": "French colony" },
+  { "categoryId": "places", "word": "Ooty", "hint": "Mountain retreat" },
+  { "categoryId": "places", "word": "Kodaikanal", "hint": "Princess station" },
+  {
+    "categoryId": "places",
+    "word": "Rameswaram",
+    "hint": "Pilgrimage destination"
+  },
+  {
+    "categoryId": "places",
+    "word": "Mahabalipuram",
+    "hint": "Coastal monument"
+  },
+  { "categoryId": "places", "word": "Vellore", "hint": "Fort city" },
+  { "categoryId": "places", "word": "Erode", "hint": "Weaving city" },
+  { "categoryId": "places", "word": "Dindigul", "hint": "Lock town" },
+  { "categoryId": "places", "word": "Karaikudi", "hint": "Chettinad center" },
+  { "categoryId": "places", "word": "Cuddalore", "hint": "Coastal port" },
+  { "categoryId": "places", "word": "Nagapattinam", "hint": "Historic port" },
+  { "categoryId": "places", "word": "Tirupur", "hint": "Spinning city" },
+  { "categoryId": "places", "word": "Marina Beach", "hint": "Urban shoreline" },
+  {
+    "categoryId": "places",
+    "word": "Meenakshi Temple",
+    "hint": "Goddess shrine"
+  },
+  {
+    "categoryId": "places",
+    "word": "Valluvar Kottam",
+    "hint": "Poet monument"
+  },
+  { "categoryId": "places", "word": "Hogenakkal", "hint": "Scenic waterfall" },
+  { "categoryId": "places", "word": "Yelagiri", "hint": "Hill station" },
+  { "categoryId": "places", "word": "Courtallam", "hint": "Waterfall town" },
+  { "categoryId": "places", "word": "Dhanushkodi", "hint": "Pilgrimage point" },
+  { "categoryId": "places", "word": "Pichavaram", "hint": "Mangrove forest" },
+  { "categoryId": "places", "word": "Chidambaram", "hint": "Nataraja temple" },
+  { "categoryId": "places", "word": "Kumbakonam", "hint": "Temple chariot" },
+  { "categoryId": "festivals", "word": "Pongal", "hint": "Harvest festival" },
+  { "categoryId": "festivals", "word": "Diwali", "hint": "Light victory" },
+  {
+    "categoryId": "festivals",
+    "word": "Navratri",
+    "hint": "Nine-night goddess"
+  },
+  {
+    "categoryId": "festivals",
+    "word": "Vinayagar Chaturthi",
+    "hint": "Elephant god"
+  },
+  { "categoryId": "festivals", "word": "Krishna Jayanthi", "hint": "Blue god" },
+  {
+    "categoryId": "festivals",
+    "word": "Thai Pongal",
+    "hint": "January harvest"
+  },
+  {
+    "categoryId": "festivals",
+    "word": "Mattu Pongal",
+    "hint": "Cattle blessing"
+  },
+  {
+    "categoryId": "festivals",
+    "word": "Kaanum Pongal",
+    "hint": "Community gathering"
+  },
+  { "categoryId": "festivals", "word": "Holi", "hint": "Colors festival" },
+  { "categoryId": "festivals", "word": "Onam", "hint": "Kerala harvest" },
+  { "categoryId": "festivals", "word": "Eid", "hint": "Islamic celebration" },
+  { "categoryId": "festivals", "word": "Christmas", "hint": "Christian birth" },
+  {
+    "categoryId": "festivals",
+    "word": "Karthigai Deepam",
+    "hint": "Light cluster"
+  },
+  {
+    "categoryId": "festivals",
+    "word": "Makar Sankranti",
+    "hint": "Sun transition"
+  },
+  { "categoryId": "festivals", "word": "Ugadi", "hint": "Telugu new" },
+  { "categoryId": "festivals", "word": "Vishu", "hint": "Malayalam new" },
+  { "categoryId": "festivals", "word": "Bihu", "hint": "Assamese harvest" },
+  {
+    "categoryId": "festivals",
+    "word": "Durga Puja",
+    "hint": "Goddess victory"
+  },
+  { "categoryId": "festivals", "word": "Ram Navami", "hint": "Prince birth" },
+  {
+    "categoryId": "festivals",
+    "word": "Ganesh Chaturthi",
+    "hint": "Prosperity god"
+  },
+  { "categoryId": "festivals", "word": "Jallikattu", "hint": "Bull taming" },
+  { "categoryId": "festivals", "word": "Thiruvizha", "hint": "Temple fair" },
+  {
+    "categoryId": "festivals",
+    "word": "Panguni Uthiram",
+    "hint": "Spring full"
+  },
+  {
+    "categoryId": "festivals",
+    "word": "Chithirai Thiruvizha",
+    "hint": "New year"
+  },
+  {
+    "categoryId": "festivals",
+    "word": "Thaipusam",
+    "hint": "Piercing devotion"
+  },
+  {
+    "categoryId": "festivals",
+    "word": "Aadi Perukku",
+    "hint": "River worship"
+  },
+  {
+    "categoryId": "festivals",
+    "word": "Ayudha Pooja",
+    "hint": "Weapon blessing"
+  },
+  {
+    "categoryId": "festivals",
+    "word": "Saraswati Pooja",
+    "hint": "Knowledge goddess"
+  },
+  {
+    "categoryId": "festivals",
+    "word": "Karadaiyan Nombu",
+    "hint": "Marital purity"
+  },
+  {
+    "categoryId": "festivals",
+    "word": "Varalakshmi Vratham",
+    "hint": "Prosperity goddess"
+  },
+  {
+    "categoryId": "school-college",
+    "word": "Homework",
+    "hint": "Assignment work"
+  },
+  {
+    "categoryId": "school-college",
+    "word": "Assembly",
+    "hint": "Morning gathering"
+  },
+  {
+    "categoryId": "school-college",
+    "word": "PT Period",
+    "hint": "Physical training"
+  },
+  {
+    "categoryId": "school-college",
+    "word": "Lunch Break",
+    "hint": "Midday meal"
+  },
+  { "categoryId": "school-college", "word": "Bell", "hint": "Timing signal" },
+  {
+    "categoryId": "school-college",
+    "word": "Principal",
+    "hint": "Authority head"
+  },
+  { "categoryId": "school-college", "word": "Chalk", "hint": "Writing tool" },
+  {
+    "categoryId": "school-college",
+    "word": "Blackboard",
+    "hint": "Writing surface"
+  },
+  {
+    "categoryId": "school-college",
+    "word": "Report Card",
+    "hint": "Performance card"
+  },
+  { "categoryId": "school-college", "word": "Exam", "hint": "Assessment test" },
+  {
+    "categoryId": "school-college",
+    "word": "Tuition",
+    "hint": "Coaching classes"
+  },
+  {
+    "categoryId": "school-college",
+    "word": "Bus Stop",
+    "hint": "Transport point"
+  },
+  {
+    "categoryId": "school-college",
+    "word": "Canteen",
+    "hint": "Lunch facility"
+  },
+  { "categoryId": "school-college", "word": "Lab", "hint": "Experiment space" },
+  {
+    "categoryId": "school-college",
+    "word": "Library",
+    "hint": "Book repository"
+  },
+  {
+    "categoryId": "school-college",
+    "word": "Farewell",
+    "hint": "Goodbye event"
+  },
+  {
+    "categoryId": "school-college",
+    "word": "Annual Day",
+    "hint": "Yearly function"
+  },
+  {
+    "categoryId": "school-college",
+    "word": "Sports Day",
+    "hint": "Athletic event"
+  },
+  {
+    "categoryId": "school-college",
+    "word": "NCC",
+    "hint": "Military training"
+  },
+  { "categoryId": "school-college", "word": "NSS", "hint": "Social service" },
+  { "categoryId": "school-college", "word": "Bunk", "hint": "Class absence" },
+  {
+    "categoryId": "school-college",
+    "word": "Proxy",
+    "hint": "Fake attendance"
+  },
+  {
+    "categoryId": "school-college",
+    "word": "Backbencher",
+    "hint": "Rear seat"
+  },
+  { "categoryId": "school-college", "word": "Monitor", "hint": "Class leader" },
+  {
+    "categoryId": "school-college",
+    "word": "Staff Room",
+    "hint": "Teacher space"
+  },
+  {
+    "categoryId": "school-college",
+    "word": "Hostel",
+    "hint": "Residential accommodation"
+  },
+  {
+    "categoryId": "school-college",
+    "word": "Ragging",
+    "hint": "Bullying tradition"
+  },
+  {
+    "categoryId": "school-college",
+    "word": "Placement",
+    "hint": "Job recruitment"
+  },
+  {
+    "categoryId": "school-college",
+    "word": "Arrear",
+    "hint": "Failed subject"
+  },
+  {
+    "categoryId": "school-college",
+    "word": "Semester",
+    "hint": "Academic term"
+  },
+  { "categoryId": "school-college", "word": "Viva", "hint": "Oral exam" },
+  {
+    "categoryId": "school-college",
+    "word": "Project",
+    "hint": "Practical work"
+  },
+  {
+    "categoryId": "school-college",
+    "word": "Internship",
+    "hint": "Work experience"
+  },
+  {
+    "categoryId": "school-college",
+    "word": "Convocation",
+    "hint": "Degree ceremony"
+  },
+  {
+    "categoryId": "school-college",
+    "word": "Alumni",
+    "hint": "Former students"
+  },
+  { "categoryId": "tech", "word": "WhatsApp", "hint": "Messaging platform" },
+  { "categoryId": "tech", "word": "Instagram", "hint": "Photo social" },
+  { "categoryId": "tech", "word": "YouTube", "hint": "Video streaming" },
+  { "categoryId": "tech", "word": "Netflix", "hint": "Movie subscription" },
+  { "categoryId": "tech", "word": "Spotify", "hint": "Music streaming" },
+  { "categoryId": "tech", "word": "iPhone", "hint": "Apple phone" },
+  { "categoryId": "tech", "word": "Android", "hint": "Google operating" },
+  { "categoryId": "tech", "word": "WiFi", "hint": "Wireless internet" },
+  { "categoryId": "tech", "word": "Bluetooth", "hint": "Wireless protocol" },
+  { "categoryId": "tech", "word": "ChatGPT", "hint": "AI conversation" },
+  { "categoryId": "tech", "word": "Google", "hint": "Search engine" },
+  { "categoryId": "tech", "word": "Amazon", "hint": "Online shopping" },
+  { "categoryId": "tech", "word": "Zomato", "hint": "Food delivery" },
+  { "categoryId": "tech", "word": "Swiggy", "hint": "Restaurant delivery" },
+  { "categoryId": "tech", "word": "UPI", "hint": "Payment interface" },
+  { "categoryId": "tech", "word": "PhonePe", "hint": "Digital wallet" },
+  { "categoryId": "tech", "word": "GPay", "hint": "Google payment" },
+  { "categoryId": "tech", "word": "Paytm", "hint": "Mobile wallet" },
+  { "categoryId": "tech", "word": "Ola", "hint": "Ride-hailing" },
+  { "categoryId": "tech", "word": "Uber", "hint": "Ride-sharing" },
+  { "categoryId": "tech", "word": "TikTok", "hint": "Video app" },
+  { "categoryId": "tech", "word": "Snapchat", "hint": "Message app" },
+  { "categoryId": "tech", "word": "Twitter", "hint": "Posting site" },
+  { "categoryId": "tech", "word": "LinkedIn", "hint": "Professional network" },
+  { "categoryId": "tech", "word": "Reddit", "hint": "Discussion forum" },
+  { "categoryId": "tech", "word": "Laptop", "hint": "Computing device" },
+  { "categoryId": "tech", "word": "Tablet", "hint": "Touch screen" },
+  { "categoryId": "tech", "word": "AirPods", "hint": "Audio earbuds" },
+  { "categoryId": "tech", "word": "Smartwatch", "hint": "Wearable device" },
+  { "categoryId": "tech", "word": "Alexa", "hint": "Voice assistant" },
+  { "categoryId": "tech", "word": "Password", "hint": "Login code" },
+  { "categoryId": "tech", "word": "Selfie", "hint": "Self photo" },
+  { "categoryId": "tech", "word": "Screenshot", "hint": "Screen capture" },
+  { "categoryId": "tech", "word": "Hotspot", "hint": "Internet sharing" },
+  { "categoryId": "tech", "word": "Dark Mode", "hint": "Display theme" },
+  { "categoryId": "animals", "word": "Lion", "hint": "Jungle king" },
+  { "categoryId": "animals", "word": "Tiger", "hint": "Striped predator" },
+  { "categoryId": "animals", "word": "Elephant", "hint": "Trunk giant" },
+  {
+    "categoryId": "animals",
+    "word": "Monkey",
+    "hint": "Tree-swinging primate"
+  },
+  { "categoryId": "animals", "word": "Peacock", "hint": "Colorful bird" },
+  { "categoryId": "animals", "word": "Cobra", "hint": "Venomous serpent" },
+  { "categoryId": "animals", "word": "Cow", "hint": "Milk animal" },
+  { "categoryId": "animals", "word": "Buffalo", "hint": "Horned beast" },
+  { "categoryId": "animals", "word": "Parrot", "hint": "Talking bird" },
+  { "categoryId": "animals", "word": "Eagle", "hint": "Flying raptor" },
+  { "categoryId": "animals", "word": "Dog", "hint": "Loyal companion" },
+  { "categoryId": "animals", "word": "Cat", "hint": "Feline pet" },
+  { "categoryId": "animals", "word": "Horse", "hint": "Riding steed" },
+  { "categoryId": "animals", "word": "Deer", "hint": "Antlered ungulate" },
+  { "categoryId": "animals", "word": "Bear", "hint": "Hibernating mammal" },
+  {
+    "categoryId": "animals",
+    "word": "Crocodile",
+    "hint": "Reptilian predator"
+  },
+  { "categoryId": "animals", "word": "Dolphin", "hint": "Marine mammal" },
+  { "categoryId": "animals", "word": "Whale", "hint": "Ocean mammal" },
+  { "categoryId": "animals", "word": "Shark", "hint": "Ocean predator" },
+  { "categoryId": "animals", "word": "Penguin", "hint": "Antarctic bird" },
+  { "categoryId": "animals", "word": "Camel", "hint": "Desert transport" },
+  {
+    "categoryId": "animals",
+    "word": "Giraffe",
+    "hint": "Long-necked herbivore"
+  },
+  { "categoryId": "animals", "word": "Zebra", "hint": "Striped equine" },
+  { "categoryId": "animals", "word": "Kangaroo", "hint": "Hopping marsupial" },
+  { "categoryId": "animals", "word": "Panda", "hint": "Bamboo bear" },
+  { "categoryId": "animals", "word": "Rabbit", "hint": "Hopping animal" },
+  {
+    "categoryId": "animals",
+    "word": "Squirrel",
+    "hint": "Bushy-tailed rodent"
+  },
+  { "categoryId": "animals", "word": "Owl", "hint": "Nocturnal bird" },
+  { "categoryId": "animals", "word": "Crow", "hint": "Black bird" },
+  { "categoryId": "animals", "word": "Sparrow", "hint": "Small bird" },
+  { "categoryId": "bollywood", "word": "Shah Rukh", "hint": "Romantic hero" },
+  { "categoryId": "bollywood", "word": "Salman", "hint": "Action star" },
+  { "categoryId": "bollywood", "word": "Aamir", "hint": "Perfectionist actor" },
+  { "categoryId": "bollywood", "word": "Amitabh", "hint": "Big B" },
+  {
+    "categoryId": "bollywood",
+    "word": "Ranveer",
+    "hint": "Energetic performer"
+  },
+  { "categoryId": "bollywood", "word": "Deepika", "hint": "Leading actress" },
+  { "categoryId": "bollywood", "word": "Alia", "hint": "Young star" },
+  { "categoryId": "bollywood", "word": "Priyanka", "hint": "Global icon" },
+  { "categoryId": "bollywood", "word": "Katrina", "hint": "Beauty actress" },
+  { "categoryId": "bollywood", "word": "Aishwarya", "hint": "Beauty queen" },
+  { "categoryId": "bollywood", "word": "DDLJ", "hint": "Romance classic" },
+  { "categoryId": "bollywood", "word": "Sholay", "hint": "Iconic heist" },
+  { "categoryId": "bollywood", "word": "Lagaan", "hint": "Cricket drama" },
+  {
+    "categoryId": "bollywood",
+    "word": "3 Idiots",
+    "hint": "Educational comedy"
+  },
+  {
+    "categoryId": "bollywood",
+    "word": "Dangal",
+    "hint": "Wrestling biography"
+  },
+  { "categoryId": "bollywood", "word": "Pathaan", "hint": "Spy thriller" },
+  { "categoryId": "bollywood", "word": "Jawan", "hint": "Cop adventure" },
+  { "categoryId": "bollywood", "word": "Animal", "hint": "Mafia crime" },
+  { "categoryId": "bollywood", "word": "RRR", "hint": "Action spectacle" },
+  { "categoryId": "bollywood", "word": "KGF", "hint": "Underworld saga" },
+  { "categoryId": "bollywood", "word": "Gadar", "hint": "Partition epic" },
+  { "categoryId": "bollywood", "word": "Hera Pheri", "hint": "Comedy caper" },
+  {
+    "categoryId": "bollywood",
+    "word": "Dil Chahta Hai",
+    "hint": "Friendship romance"
+  },
+  { "categoryId": "bollywood", "word": "Zindagi", "hint": "Life drama" },
+  { "categoryId": "bollywood", "word": "Pushpa", "hint": "Flower crime" },
+  { "categoryId": "bollywood", "word": "Kabir Singh", "hint": "Love story" },
+  { "categoryId": "bollywood", "word": "Bahubali", "hint": "Fantasy epic" },
+  { "categoryId": "bollywood", "word": "Stree", "hint": "Horror-comedy" },
+  { "categoryId": "bollywood", "word": "Golmaal", "hint": "Comedy chaos" },
+  { "categoryId": "bollywood", "word": "Dhoom", "hint": "Heist action" },
+  { "categoryId": "music", "word": "Ilayaraja", "hint": "Legendary composer" },
+  { "categoryId": "music", "word": "AR Rahman", "hint": "Modern musician" },
+  { "categoryId": "music", "word": "Anirudh", "hint": "Music prodigy" },
+  { "categoryId": "music", "word": "Yuvan", "hint": "Action composer" },
+  { "categoryId": "music", "word": "D Imman", "hint": "Devotional expert" },
+  {
+    "categoryId": "music",
+    "word": "Harris Jayaraj",
+    "hint": "Thriller composer"
+  },
+  { "categoryId": "music", "word": "Vidyasagar", "hint": "Period composer" },
+  { "categoryId": "music", "word": "GV Prakash", "hint": "Rhythmic musician" },
+  {
+    "categoryId": "music",
+    "word": "Santhosh Narayanan",
+    "hint": "Indie musician"
+  },
+  { "categoryId": "music", "word": "Sam CS", "hint": "Nature-themed" },
+  { "categoryId": "music", "word": "Roja Theme", "hint": "Patriotic score" },
+  { "categoryId": "music", "word": "Jai Ho", "hint": "Slumdog hit" },
+  {
+    "categoryId": "music",
+    "word": "Why This Kolaveri",
+    "hint": "Viral anthem"
+  },
+  { "categoryId": "music", "word": "Vaathi Coming", "hint": "Action theme" },
+  { "categoryId": "music", "word": "Arabic Kuthu", "hint": "Dance banger" },
+  { "categoryId": "music", "word": "Maari Theme", "hint": "Gangster number" },
+  {
+    "categoryId": "music",
+    "word": "Aalaporan Tamizhan",
+    "hint": "Patriotic anthem"
+  },
+  { "categoryId": "music", "word": "Kannazhaga", "hint": "Romantic melody" },
+  { "categoryId": "music", "word": "Nenjukkul", "hint": "Heart composition" },
+  { "categoryId": "music", "word": "Munbe Vaa", "hint": "Friendship song" },
+  { "categoryId": "music", "word": "Kadhalan", "hint": "Love number" },
+  { "categoryId": "music", "word": "Rhythm", "hint": "Beat instrumental" },
+  { "categoryId": "music", "word": "Thiruvasagam", "hint": "Devotional piece" },
+  {
+    "categoryId": "music",
+    "word": "Pudhiya Mugam",
+    "hint": "Morning composition"
+  },
+  { "categoryId": "music", "word": "Minnale", "hint": "Rain-themed" },
+  { "categoryId": "music", "word": "Guitar", "hint": "String instrument" },
+  { "categoryId": "music", "word": "Veena", "hint": "Classical stringed" },
+  { "categoryId": "music", "word": "Mridangam", "hint": "Drum percussion" },
+  { "categoryId": "music", "word": "Nadaswaram", "hint": "Wind instrument" },
+  { "categoryId": "music", "word": "Thavil", "hint": "Rhythmic percussion" },
+  { "categoryId": "sports", "word": "Football", "hint": "Field game" },
+  { "categoryId": "sports", "word": "Cricket", "hint": "Ball sport" },
+  { "categoryId": "sports", "word": "Hockey", "hint": "Stick sport" },
+  { "categoryId": "sports", "word": "Badminton", "hint": "Shuttlecock game" },
+  { "categoryId": "sports", "word": "Tennis", "hint": "Court game" },
+  { "categoryId": "sports", "word": "Kabaddi", "hint": "Wrestling sport" },
+  { "categoryId": "sports", "word": "Wrestling", "hint": "Grappling sport" },
+  { "categoryId": "sports", "word": "Boxing", "hint": "Punching sport" },
+  { "categoryId": "sports", "word": "Chess", "hint": "Strategic game" },
+  { "categoryId": "sports", "word": "Carrom", "hint": "Board game" },
+  { "categoryId": "sports", "word": "Marathon", "hint": "Running race" },
+  { "categoryId": "sports", "word": "Swimming", "hint": "Water sport" },
+  { "categoryId": "sports", "word": "Archery", "hint": "Arrow sport" },
+  { "categoryId": "sports", "word": "Shooting", "hint": "Precision sport" },
+  { "categoryId": "sports", "word": "Javelin", "hint": "Throwing event" },
+  { "categoryId": "sports", "word": "Volleyball", "hint": "Team game" },
+  { "categoryId": "sports", "word": "Basketball", "hint": "Hoop sport" },
+  { "categoryId": "sports", "word": "Table Tennis", "hint": "Paddle game" },
+  { "categoryId": "sports", "word": "Golf", "hint": "Hole sport" },
+  { "categoryId": "sports", "word": "Polo", "hint": "Mallet game" },
+  { "categoryId": "sports", "word": "Olympics", "hint": "Global championship" },
+  { "categoryId": "sports", "word": "World Cup", "hint": "Tournament crown" },
+  { "categoryId": "sports", "word": "Commonwealth", "hint": "Nations games" },
+  {
+    "categoryId": "sports",
+    "word": "Asian Games",
+    "hint": "Regional competition"
+  },
+  { "categoryId": "sports", "word": "IPL", "hint": "Cricket league" },
+  { "categoryId": "sports", "word": "Stadium", "hint": "Spectator venue" },
+  { "categoryId": "sports", "word": "Gold Medal", "hint": "Achievement award" },
+  { "categoryId": "sports", "word": "Referee", "hint": "Rule enforcement" },
+  { "categoryId": "sports", "word": "Penalty", "hint": "Violation punishment" },
+  { "categoryId": "sports", "word": "Offside", "hint": "Position violation" },
+  { "categoryId": "fun-things", "word": "Meme", "hint": "Comedy content" },
+  { "categoryId": "fun-things", "word": "Troll", "hint": "Internet behavior" },
+  { "categoryId": "fun-things", "word": "Reels", "hint": "Video content" },
+  { "categoryId": "fun-things", "word": "Vlog", "hint": "Video biography" },
+  { "categoryId": "fun-things", "word": "Prank", "hint": "Joke deception" },
+  {
+    "categoryId": "fun-things",
+    "word": "Stand-up",
+    "hint": "Comedy performance"
+  },
+  { "categoryId": "fun-things", "word": "Roast", "hint": "Humorous criticism" },
+  { "categoryId": "fun-things", "word": "Mimicry", "hint": "Impression skill" },
+  { "categoryId": "fun-things", "word": "Dubsmash", "hint": "Lip-sync video" },
+  { "categoryId": "fun-things", "word": "Podcast", "hint": "Audio series" },
+  { "categoryId": "fun-things", "word": "Dare", "hint": "Challenge game" },
+  { "categoryId": "fun-things", "word": "Truth", "hint": "Revelation game" },
+  {
+    "categoryId": "fun-things",
+    "word": "Gossip",
+    "hint": "Rumor conversation"
+  },
+  {
+    "categoryId": "fun-things",
+    "word": "Drama",
+    "hint": "Exaggerated reaction"
+  },
+  { "categoryId": "fun-things", "word": "Sarcasm", "hint": "Ironic statement" },
+  {
+    "categoryId": "fun-things",
+    "word": "Binge Watch",
+    "hint": "Viewing marathon"
+  },
+  { "categoryId": "fun-things", "word": "All-nighter", "hint": "Late night" },
+  {
+    "categoryId": "fun-things",
+    "word": "Road Trip",
+    "hint": "Travel adventure"
+  },
+  {
+    "categoryId": "fun-things",
+    "word": "Beach Day",
+    "hint": "Shoreline outing"
+  },
+  { "categoryId": "fun-things", "word": "Party", "hint": "Social gathering" },
+  {
+    "categoryId": "fun-things",
+    "word": "Karaoke",
+    "hint": "Sing-along activity"
+  },
+  {
+    "categoryId": "fun-things",
+    "word": "Sleepover",
+    "hint": "Friend gathering"
+  },
+  { "categoryId": "fun-things", "word": "Potluck", "hint": "Shared meal" },
+  { "categoryId": "fun-things", "word": "Reunion", "hint": "Friend event" },
+  {
+    "categoryId": "fun-things",
+    "word": "Flash Mob",
+    "hint": "Surprise performance"
+  },
+  {
+    "categoryId": "fun-things",
+    "word": "Photobomb",
+    "hint": "Photo intrusion"
+  },
+  { "categoryId": "fun-things", "word": "Blooper", "hint": "Mistake moment" },
+  { "categoryId": "fun-things", "word": "Inside Joke", "hint": "Group humor" },
+  {
+    "categoryId": "fun-things",
+    "word": "Cringe",
+    "hint": "Uncomfortable feeling"
+  },
+  { "categoryId": "fun-things", "word": "FOMO", "hint": "Missing out" },
+  { "categoryId": "street-food", "word": "Pani Puri", "hint": "Crispy water" },
+  { "categoryId": "street-food", "word": "Bhel Puri", "hint": "Puffed rice" },
+  { "categoryId": "street-food", "word": "Samosa", "hint": "Fried pastry" },
+  { "categoryId": "street-food", "word": "Chaat", "hint": "Savory snack" },
+  { "categoryId": "street-food", "word": "Vada Pav", "hint": "Fritter bread" },
+  { "categoryId": "street-food", "word": "Pav Bhaji", "hint": "Bread curry" },
+  { "categoryId": "street-food", "word": "Kachori", "hint": "Spiced filling" },
+  { "categoryId": "street-food", "word": "Jalebi", "hint": "Orange sweet" },
+  { "categoryId": "street-food", "word": "Lassi", "hint": "Yogurt drink" },
+  { "categoryId": "street-food", "word": "Chai", "hint": "Spiced tea" },
+  { "categoryId": "street-food", "word": "Momos", "hint": "Steamed dumplings" },
+  { "categoryId": "street-food", "word": "Rolls", "hint": "Wrapped flatbread" },
+  { "categoryId": "street-food", "word": "Shawarma", "hint": "Meat wraps" },
+  { "categoryId": "street-food", "word": "Frankie", "hint": "Rolled tortilla" },
+  {
+    "categoryId": "street-food",
+    "word": "Dahi Puri",
+    "hint": "Yogurt tamarind"
+  },
+  { "categoryId": "street-food", "word": "Sev Puri", "hint": "Crispy noodle" },
+  { "categoryId": "street-food", "word": "Aloo Tikki", "hint": "Potato patty" },
+  {
+    "categoryId": "street-food",
+    "word": "Chole Bhature",
+    "hint": "Chickpea bread"
+  },
+  { "categoryId": "street-food", "word": "Poha", "hint": "Flattened rice" },
+  { "categoryId": "street-food", "word": "Corn", "hint": "Yellow kernels" },
+  { "categoryId": "street-food", "word": "Kulfi", "hint": "Frozen dessert" },
+  { "categoryId": "street-food", "word": "Gola", "hint": "Ice crystal" },
+  {
+    "categoryId": "street-food",
+    "word": "Sugarcane Juice",
+    "hint": "Sweet drink"
+  },
+  {
+    "categoryId": "street-food",
+    "word": "Tender Coconut",
+    "hint": "Water drink"
+  },
+  {
+    "categoryId": "street-food",
+    "word": "Lemon Soda",
+    "hint": "Fizzy beverage"
+  },
+  { "categoryId": "street-food", "word": "Egg Puff", "hint": "Pastry snack" },
+  { "categoryId": "street-food", "word": "Cutlet", "hint": "Fried patty" },
+  {
+    "categoryId": "street-food",
+    "word": "Spring Roll",
+    "hint": "Crispy wrapper"
+  },
+  { "categoryId": "street-food", "word": "Noodles", "hint": "Wheat noodle" },
+  { "categoryId": "street-food", "word": "Sandwich", "hint": "Bread meal" },
+  {
+    "categoryId": "vehicles",
+    "word": "Royal Enfield",
+    "hint": "Motorcycle brand"
+  },
+  { "categoryId": "vehicles", "word": "Splendor", "hint": "Budget bike" },
+  { "categoryId": "vehicles", "word": "Activa", "hint": "Scooter model" },
+  { "categoryId": "vehicles", "word": "Pulsar", "hint": "Performance bike" },
+  { "categoryId": "vehicles", "word": "KTM", "hint": "Racing bike" },
+  { "categoryId": "vehicles", "word": "Swift", "hint": "Hatchback car" },
+  { "categoryId": "vehicles", "word": "Innova", "hint": "Family vehicle" },
+  { "categoryId": "vehicles", "word": "Fortuner", "hint": "SUV vehicle" },
+  { "categoryId": "vehicles", "word": "Alto", "hint": "Small car" },
+  { "categoryId": "vehicles", "word": "WagonR", "hint": "Spacious car" },
+  { "categoryId": "vehicles", "word": "BMW", "hint": "Luxury brand" },
+  { "categoryId": "vehicles", "word": "Audi", "hint": "Premium brand" },
+  { "categoryId": "vehicles", "word": "Benz", "hint": "Luxury brand" },
+  { "categoryId": "vehicles", "word": "Tesla", "hint": "Electric car" },
+  { "categoryId": "vehicles", "word": "Ferrari", "hint": "Supercar brand" },
+  {
+    "categoryId": "vehicles",
+    "word": "Auto Rickshaw",
+    "hint": "Three-wheeler"
+  },
+  { "categoryId": "vehicles", "word": "Bus", "hint": "Transport vehicle" },
+  { "categoryId": "vehicles", "word": "Train", "hint": "Track transport" },
+  { "categoryId": "vehicles", "word": "Metro", "hint": "Underground railway" },
+  { "categoryId": "vehicles", "word": "Cycle", "hint": "Pedal transport" },
+  { "categoryId": "vehicles", "word": "Lorry", "hint": "Goods truck" },
+  { "categoryId": "vehicles", "word": "Tractor", "hint": "Farm vehicle" },
+  {
+    "categoryId": "vehicles",
+    "word": "Ambulance",
+    "hint": "Medical transport"
+  },
+  { "categoryId": "vehicles", "word": "JCB", "hint": "Construction equipment" },
+  { "categoryId": "vehicles", "word": "Helicopter", "hint": "Flying machine" },
+  { "categoryId": "vehicles", "word": "Boat", "hint": "Water vessel" },
+  { "categoryId": "vehicles", "word": "Ship", "hint": "Ocean vessel" },
+  { "categoryId": "vehicles", "word": "Airplane", "hint": "Flying transport" },
+  { "categoryId": "vehicles", "word": "Bullet Train", "hint": "Speed rail" },
+  { "categoryId": "vehicles", "word": "Scooter", "hint": "Standing vehicle" },
+  { "categoryId": "relationships", "word": "Amma", "hint": "Mother parent" },
+  { "categoryId": "relationships", "word": "Appa", "hint": "Father parent" },
+  { "categoryId": "relationships", "word": "Anna", "hint": "Older brother" },
+  { "categoryId": "relationships", "word": "Akka", "hint": "Older sister" },
+  {
+    "categoryId": "relationships",
+    "word": "Thambi",
+    "hint": "Younger brother"
+  },
+  {
+    "categoryId": "relationships",
+    "word": "Thangachi",
+    "hint": "Younger sister"
+  },
+  {
+    "categoryId": "relationships",
+    "word": "Thatha",
+    "hint": "Grandfather elder"
+  },
+  {
+    "categoryId": "relationships",
+    "word": "Paatti",
+    "hint": "Grandmother elder"
+  },
+  { "categoryId": "relationships", "word": "Mama", "hint": "Maternal uncle" },
+  { "categoryId": "relationships", "word": "Mami", "hint": "Uncle wife" },
+  { "categoryId": "relationships", "word": "Maama", "hint": "Uncle title" },
+  { "categoryId": "relationships", "word": "Athai", "hint": "Paternal aunt" },
+  { "categoryId": "relationships", "word": "Periappa", "hint": "Uncle elder" },
+  {
+    "categoryId": "relationships",
+    "word": "Chithappa",
+    "hint": "Uncle younger"
+  },
+  { "categoryId": "relationships", "word": "Chithhi", "hint": "Uncle wife" },
+  {
+    "categoryId": "relationships",
+    "word": "Friend",
+    "hint": "Companion person"
+  },
+  {
+    "categoryId": "relationships",
+    "word": "Best Friend",
+    "hint": "Trusted companion"
+  },
+  {
+    "categoryId": "relationships",
+    "word": "Crush",
+    "hint": "Romantic interest"
+  },
+  {
+    "categoryId": "relationships",
+    "word": "Partner",
+    "hint": "Significant other"
+  },
+  {
+    "categoryId": "relationships",
+    "word": "Neighbour",
+    "hint": "Nearby person"
+  },
+  {
+    "categoryId": "relationships",
+    "word": "Teacher",
+    "hint": "Knowledge provider"
+  },
+  { "categoryId": "relationships", "word": "Boss", "hint": "Work supervisor" },
+  {
+    "categoryId": "relationships",
+    "word": "Colleague",
+    "hint": "Co-worker person"
+  },
+  {
+    "categoryId": "relationships",
+    "word": "Roommate",
+    "hint": "Shared living"
+  },
+  {
+    "categoryId": "relationships",
+    "word": "Classmate",
+    "hint": "Class person"
+  },
+  { "categoryId": "relationships", "word": "Ex", "hint": "Former partner" },
+  { "categoryId": "relationships", "word": "Bestie", "hint": "Close friend" },
+  { "categoryId": "relationships", "word": "Bro", "hint": "Brother title" },
+  { "categoryId": "relationships", "word": "Squad", "hint": "Friend group" },
+  { "categoryId": "relationships", "word": "Gang", "hint": "Friend circle" },
+  {
+    "categoryId": "professions",
+    "word": "Doctor",
+    "hint": "Medical practitioner"
+  },
+  {
+    "categoryId": "professions",
+    "word": "Engineer",
+    "hint": "Technical professional"
+  },
+  {
+    "categoryId": "professions",
+    "word": "Teacher",
+    "hint": "Education provider"
+  },
+  {
+    "categoryId": "professions",
+    "word": "Lawyer",
+    "hint": "Legal professional"
+  },
+  { "categoryId": "professions", "word": "Police", "hint": "Law enforcement" },
+  { "categoryId": "professions", "word": "Driver", "hint": "Vehicle operator" },
+  { "categoryId": "professions", "word": "Chef", "hint": "Cooking expert" },
+  {
+    "categoryId": "professions",
+    "word": "Farmer",
+    "hint": "Agriculture worker"
+  },
+  {
+    "categoryId": "professions",
+    "word": "Actor",
+    "hint": "Performance professional"
+  },
+  { "categoryId": "professions", "word": "Singer", "hint": "Music performer" },
+  { "categoryId": "professions", "word": "Cricketer", "hint": "Sports player" },
+  { "categoryId": "professions", "word": "Pilot", "hint": "Aircraft operator" },
+  {
+    "categoryId": "professions",
+    "word": "Scientist",
+    "hint": "Research professional"
+  },
+  {
+    "categoryId": "professions",
+    "word": "Politician",
+    "hint": "Government official"
+  },
+  {
+    "categoryId": "professions",
+    "word": "Journalist",
+    "hint": "News reporter"
+  },
+  {
+    "categoryId": "professions",
+    "word": "YouTuber",
+    "hint": "Content creator"
+  },
+  {
+    "categoryId": "professions",
+    "word": "Developer",
+    "hint": "Software professional"
+  },
+  {
+    "categoryId": "professions",
+    "word": "Designer",
+    "hint": "Creative professional"
+  },
+  {
+    "categoryId": "professions",
+    "word": "Photographer",
+    "hint": "Image professional"
+  },
+  { "categoryId": "professions", "word": "DJ", "hint": "Music entertainer" },
+  {
+    "categoryId": "professions",
+    "word": "Barber",
+    "hint": "Hair professional"
+  },
+  {
+    "categoryId": "professions",
+    "word": "Mechanic",
+    "hint": "Repair technician"
+  },
+  { "categoryId": "professions", "word": "Plumber", "hint": "Pipe technician" },
+  {
+    "categoryId": "professions",
+    "word": "Electrician",
+    "hint": "Electrical technician"
+  },
+  {
+    "categoryId": "professions",
+    "word": "Tailor",
+    "hint": "Clothing professional"
+  },
+  {
+    "categoryId": "professions",
+    "word": "Nurse",
+    "hint": "Medical professional"
+  },
+  {
+    "categoryId": "professions",
+    "word": "Dentist",
+    "hint": "Dental professional"
+  },
+  {
+    "categoryId": "professions",
+    "word": "CA",
+    "hint": "Accounting professional"
+  },
+  {
+    "categoryId": "professions",
+    "word": "IAS Officer",
+    "hint": "Administrative official"
+  },
+  { "categoryId": "professions", "word": "Shopkeeper", "hint": "Retail owner" },
+  { "categoryId": "Chennai-life", "word": "Marina", "hint": "Iconic beach" },
+  {
+    "categoryId": "Chennai-life",
+    "word": "T Nagar",
+    "hint": "Shopping district"
+  },
+  {
+    "categoryId": "Chennai-life",
+    "word": "Besant Nagar",
+    "hint": "Residential area"
+  },
+  {
+    "categoryId": "Chennai-life",
+    "word": "Anna Nagar",
+    "hint": "Urban locality"
+  },
+  { "categoryId": "Chennai-life", "word": "Adyar", "hint": "South Chennai" },
+  { "categoryId": "Chennai-life", "word": "MTC Bus", "hint": "City transport" },
+  {
+    "categoryId": "Chennai-life",
+    "word": "Share Auto",
+    "hint": "Transport auto"
+  },
+  {
+    "categoryId": "Chennai-life",
+    "word": "Local Train",
+    "hint": "Commuter rail"
+  },
+  { "categoryId": "Chennai-life", "word": "MRTS", "hint": "Rail rapid" },
+  {
+    "categoryId": "Chennai-life",
+    "word": "Metro",
+    "hint": "Underground railway"
+  },
+  {
+    "categoryId": "Chennai-life",
+    "word": "Saravana Bhavan",
+    "hint": "Food restaurant"
+  },
+  {
+    "categoryId": "Chennai-life",
+    "word": "Murugan Idli",
+    "hint": "Food restaurant"
+  },
+  { "categoryId": "Chennai-life", "word": "Hot Chips", "hint": "Food snack" },
+  { "categoryId": "Chennai-life", "word": "A2B", "hint": "Food restaurant" },
+  {
+    "categoryId": "Chennai-life",
+    "word": "Sangeetha",
+    "hint": "Food restaurant"
+  },
+  {
+    "categoryId": "Chennai-life",
+    "word": "Express Avenue",
+    "hint": "Shopping mall"
+  },
+  {
+    "categoryId": "Chennai-life",
+    "word": "Phoenix Mall",
+    "hint": "Shopping mall"
+  },
+  { "categoryId": "Chennai-life", "word": "VR Mall", "hint": "Shopping mall" },
+  {
+    "categoryId": "Chennai-life",
+    "word": "Citi Centre",
+    "hint": "Shopping mall"
+  },
+  { "categoryId": "Chennai-life", "word": "Forum", "hint": "Shopping mall" },
+  {
+    "categoryId": "Chennai-life",
+    "word": "IIT Madras",
+    "hint": "Educational institution"
+  },
+  {
+    "categoryId": "Chennai-life",
+    "word": "Anna University",
+    "hint": "Educational institution"
+  },
+  {
+    "categoryId": "Chennai-life",
+    "word": "Loyola",
+    "hint": "Educational institution"
+  },
+  {
+    "categoryId": "Chennai-life",
+    "word": "SRM",
+    "hint": "Educational institution"
+  },
+  {
+    "categoryId": "Chennai-life",
+    "word": "VIT",
+    "hint": "Educational institution"
+  },
+  {
+    "categoryId": "Chennai-life",
+    "word": "Kapaleeshwarar",
+    "hint": "Temple location"
+  },
+  { "categoryId": "Chennai-life", "word": "Mylapore", "hint": "Cultural area" },
+  {
+    "categoryId": "Chennai-life",
+    "word": "Egmore",
+    "hint": "Central location"
+  },
+  {
+    "categoryId": "Chennai-life",
+    "word": "Central",
+    "hint": "Railway station"
+  },
+  { "categoryId": "Chennai-life", "word": "Guindy", "hint": "National park" }
+]

@@ -20,6 +20,7 @@ export interface GameConfig {
 export interface GameState {
   config: GameConfig;
   word: string;
+  wordHint: string;
   categoryName: string;
   categoryIcon: string;
   imposterIds: string[];

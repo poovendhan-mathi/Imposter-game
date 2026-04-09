@@ -42,18 +42,10 @@ export default function PlayersPage() {
     setPlayers(preset);
     setSuggestions(getPlayerSuggestions());
     const saved = loadSelectedIds();
-    // If nothing saved yet, select all
-    if (saved.size === 0 && preset.length > 0) {
-      const allIds = new Set(preset.map((p) => p.id));
-      setSelectedIds(allIds);
-      saveSelectedIds(allIds);
-    } else {
-      // Only keep IDs that still exist
-      const validIds = new Set(
-        [...saved].filter((id) => preset.some((p) => p.id === id)),
-      );
-      setSelectedIds(validIds);
-    }
+    const validIds = new Set(
+      [...saved].filter((id) => preset.some((p) => p.id === id)),
+    );
+    setSelectedIds(validIds);
   }, []);
 
   const availableSuggestions = suggestions.filter(

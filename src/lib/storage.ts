@@ -9,6 +9,24 @@ function generateId() {
   return Math.random().toString(36).substring(2, 9);
 }
 
+function hasDefaultPresetPlayers(players: Player[]): boolean {
+  if (players.length !== DEFAULT_PRESET_NAMES.length) return false;
+  return DEFAULT_PRESET_NAMES.every((name) =>
+    players.some((player) => player.name.toLowerCase() === name.toLowerCase()),
+  );
+}
+
+function ensureSuggestionSeed(): void {
+  if (typeof window === "undefined") return;
+  const existing = localStorage.getItem(PLAYER_SUGGESTIONS_KEY);
+  if (!existing) {
+    localStorage.setItem(
+      PLAYER_SUGGESTIONS_KEY,
+      JSON.stringify(DEFAULT_PRESET_NAMES),
+    );
+  }
+}
+
 export function getCustomCategories(): Category[] {
   if (typeof window === "undefined") return [];
   const data = localStorage.getItem(CUSTOM_CATEGORIES_KEY);
@@ -34,20 +52,26 @@ export function deleteCustomCategory(id: string): void {
 export function getPresetPlayers(): Player[] {
   if (typeof window === "undefined") return [];
 
-  // Initialize default presets on first visit
   const initialized = localStorage.getItem(INITIALIZED_KEY);
   if (!initialized) {
-    const defaults: Player[] = DEFAULT_PRESET_NAMES.map((name) => ({
-      id: generateId(),
-      name,
-    }));
-    localStorage.setItem(PRESET_PLAYERS_KEY, JSON.stringify(defaults));
+    localStorage.setItem(PRESET_PLAYERS_KEY, JSON.stringify([]));
+    ensureSuggestionSeed();
     localStorage.setItem(INITIALIZED_KEY, "1");
-    return defaults;
+    return [];
   }
 
+  ensureSuggestionSeed();
+
   const data = localStorage.getItem(PRESET_PLAYERS_KEY);
-  return data ? JSON.parse(data) : [];
+  const players = data ? (JSON.parse(data) as Player[]) : [];
+
+  // Migrate older installs that stored default suggestions as active players.
+  if (hasDefaultPresetPlayers(players)) {
+    localStorage.setItem(PRESET_PLAYERS_KEY, JSON.stringify([]));
+    return [];
+  }
+
+  return players;
 }
 
 export function savePresetPlayers(players: Player[]): void {
