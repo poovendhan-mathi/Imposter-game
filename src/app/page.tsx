@@ -16,8 +16,11 @@ export default function Home() {
           className="flex flex-col items-center gap-4"
         >
           <div className="text-center">
-            <p className="title-lockup text-[3.4rem]">Imposter</p>
-            <p className="title-lockup text-[3.4rem]">Who?</p>
+            <div className="flex items-center justify-center gap-3 mb-1">
+              <span className="text-[2.2rem]">🟠</span>
+              <p className="title-lockup text-[3rem]">OrangeBall</p>
+            </div>
+            <p className="title-lockup text-[2.75rem]">The Imposter</p>
           </div>
           <p className="text-foreground/45 text-sm tracking-[0.22em] uppercase font-semibold">
             Pass And Play Party Game
@@ -47,8 +50,12 @@ export default function Home() {
           transition={{ delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
           className="flex flex-col gap-3 w-full"
         >
-          <Link href="/setup" className="w-full flex justify-center">
-            <GlowButton color="mint" size="lg" className="w-[88%] text-center">
+          <Link href="/setup" className="w-full">
+            <GlowButton
+              color="mint"
+              size="lg"
+              className="block w-full max-w-76 mx-auto text-center"
+            >
               Start Game
             </GlowButton>
           </Link>

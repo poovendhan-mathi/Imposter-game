@@ -2,6 +2,7 @@ import { Category, Player, DEFAULT_PRESET_NAMES } from "./types";
 
 const CUSTOM_CATEGORIES_KEY = "imposter-custom-categories";
 const PRESET_PLAYERS_KEY = "imposter-preset-players";
+const PLAYER_SUGGESTIONS_KEY = "imposter-player-suggestions";
 const INITIALIZED_KEY = "imposter-initialized";
 
 function generateId() {
@@ -51,4 +52,46 @@ export function getPresetPlayers(): Player[] {
 
 export function savePresetPlayers(players: Player[]): void {
   localStorage.setItem(PRESET_PLAYERS_KEY, JSON.stringify(players));
+}
+
+export function getPlayerSuggestions(): string[] {
+  if (typeof window === "undefined") return DEFAULT_PRESET_NAMES;
+
+  const data = localStorage.getItem(PLAYER_SUGGESTIONS_KEY);
+  if (!data) {
+    localStorage.setItem(
+      PLAYER_SUGGESTIONS_KEY,
+      JSON.stringify(DEFAULT_PRESET_NAMES),
+    );
+    return DEFAULT_PRESET_NAMES;
+  }
+
+  try {
+    const parsed = JSON.parse(data) as string[];
+    return parsed.length > 0 ? parsed : DEFAULT_PRESET_NAMES;
+  } catch {
+    return DEFAULT_PRESET_NAMES;
+  }
+}
+
+export function savePlayerSuggestions(names: string[]): void {
+  localStorage.setItem(PLAYER_SUGGESTIONS_KEY, JSON.stringify(names));
+}
+
+export function addPlayerSuggestion(name: string): string[] {
+  const normalized = name.trim();
+  if (!normalized) return getPlayerSuggestions();
+
+  const suggestions = getPlayerSuggestions();
+  if (
+    suggestions.some(
+      (existing) => existing.toLowerCase() === normalized.toLowerCase(),
+    )
+  ) {
+    return suggestions;
+  }
+
+  const updated = [...suggestions, normalized];
+  savePlayerSuggestions(updated);
+  return updated;
 }

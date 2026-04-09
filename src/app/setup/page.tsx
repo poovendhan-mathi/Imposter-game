@@ -95,8 +95,11 @@ export default function SetupPage() {
             ←
           </button>
           <div>
-            <p className="title-lockup text-[2.3rem]">Imposter</p>
-            <p className="title-lockup text-[2.3rem]">Who?</p>
+            <div className="flex items-center gap-2 mb-0.5">
+              <span className="text-xl">🟠</span>
+              <p className="title-lockup text-[1.95rem]">OrangeBall</p>
+            </div>
+            <p className="title-lockup text-[1.85rem]">The Imposter</p>
           </div>
         </div>
 
@@ -212,7 +215,7 @@ export default function SetupPage() {
           <GlowButton
             color="mint"
             size="lg"
-            className="w-[86%] text-center"
+            className="block w-full max-w-76 mx-auto text-center"
             onClick={handleStart}
             disabled={!canStart}
           >

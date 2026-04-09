@@ -6,8 +6,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import PageWrapper from "@/components/ui/PageWrapper";
 import GlowButton from "@/components/ui/GlowButton";
 import PlayerChip from "@/components/ui/PlayerChip";
-import { getPresetPlayers, savePresetPlayers } from "@/lib/storage";
-import { Player, DEFAULT_PRESET_NAMES } from "@/lib/types";
+import {
+  addPlayerSuggestion,
+  getPlayerSuggestions,
+  getPresetPlayers,
+  savePresetPlayers,
+} from "@/lib/storage";
+import { Player } from "@/lib/types";
 
 const SELECTED_IDS_KEY = "imposter-selected-player-ids";
 
@@ -30,10 +35,12 @@ export default function PlayersPage() {
   const [players, setPlayers] = useState<Player[]>([]);
   const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
   const [newName, setNewName] = useState("");
+  const [suggestions, setSuggestions] = useState<string[]>([]);
 
   useEffect(() => {
     const preset = getPresetPlayers();
     setPlayers(preset);
+    setSuggestions(getPlayerSuggestions());
     const saved = loadSelectedIds();
     // If nothing saved yet, select all
     if (saved.size === 0 && preset.length > 0) {
@@ -49,7 +56,7 @@ export default function PlayersPage() {
     }
   }, []);
 
-  const availableSuggestions = DEFAULT_PRESET_NAMES.filter(
+  const availableSuggestions = suggestions.filter(
     (name) => !players.some((p) => p.name.toLowerCase() === name.toLowerCase()),
   );
 
@@ -79,6 +86,14 @@ export default function PlayersPage() {
     });
     setNewName("");
   }, [newName, players]);
+
+  const saveSuggestion = useCallback(() => {
+    const name = newName.trim();
+    if (!name || name.length > 15) return;
+    const updated = addPlayerSuggestion(name);
+    setSuggestions(updated);
+    setNewName("");
+  }, [newName]);
 
   const addSuggested = useCallback(
     (name: string) => {
@@ -115,7 +130,6 @@ export default function PlayersPage() {
   return (
     <PageWrapper className="flex flex-col px-5 py-6 safe-top safe-bottom">
       <div className="max-w-lg mx-auto w-full flex flex-col gap-5">
-        {/* Header */}
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             <button
@@ -124,7 +138,13 @@ export default function PlayersPage() {
             >
               ←
             </button>
-            <h1 className="text-2xl font-bold text-foreground">Players</h1>
+            <div>
+              <div className="flex items-center gap-2 mb-0.5">
+                <span className="text-xl">🟠</span>
+                <p className="title-lockup text-[1.85rem]">OrangeBall</p>
+              </div>
+              <p className="title-lockup text-[1.75rem]">Players</p>
+            </div>
           </div>
           <span className="text-sm text-foreground/50">
             {selectedCount} selected
@@ -154,8 +174,7 @@ export default function PlayersPage() {
           )}
         </section>
 
-        {/* Add player input */}
-        <section className="flex gap-2">
+        <section className="flex flex-col gap-2">
           <input
             type="text"
             value={newName}
@@ -167,21 +186,32 @@ export default function PlayersPage() {
               text-sm text-foreground placeholder:text-foreground/30
               focus:border-nova/40 focus:outline-none transition-colors"
           />
-          <GlowButton
-            color="nova"
-            size="sm"
-            onClick={addPlayer}
-            disabled={!newName.trim()}
-          >
-            Add
-          </GlowButton>
+          <div className="grid grid-cols-2 gap-2">
+            <GlowButton
+              color="nova"
+              size="sm"
+              onClick={addPlayer}
+              disabled={!newName.trim()}
+              className="w-full text-center"
+            >
+              Add Player
+            </GlowButton>
+            <GlowButton
+              color="ember"
+              size="sm"
+              onClick={saveSuggestion}
+              disabled={!newName.trim()}
+              className="w-full text-center"
+            >
+              Save Suggestion
+            </GlowButton>
+          </div>
         </section>
 
-        {/* Quick suggestions */}
         {availableSuggestions.length > 0 && (
           <section className="flex flex-col gap-2">
             <h2 className="text-xs font-semibold text-foreground/40 uppercase tracking-wider">
-              Quick Add
+              Suggestions
             </h2>
             <div className="flex flex-wrap gap-1.5">
               {availableSuggestions.map((name) => (
@@ -207,7 +237,7 @@ export default function PlayersPage() {
           <GlowButton
             color="mint"
             size="lg"
-            className="w-full text-center"
+            className="block w-full max-w-76 mx-auto text-center"
             onClick={() => router.push("/setup")}
           >
             ✓ Done ({selectedCount} players)

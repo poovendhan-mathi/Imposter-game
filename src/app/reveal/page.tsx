@@ -41,24 +41,32 @@ export default function RevealPage() {
     <PageWrapper className="flex flex-col items-center justify-center px-6 safe-top safe-bottom">
       <div className="max-w-sm w-full flex flex-col items-center gap-8">
         <div className="text-center">
-          <p className="title-lockup text-[2.9rem]">Imposter</p>
-          <p className="title-lockup text-[2.9rem]">Who?</p>
+          <div className="flex items-center justify-center gap-3 mb-1">
+            <span className="text-2xl">🟠</span>
+            <p className="title-lockup text-[2.45rem]">OrangeBall</p>
+          </div>
+          <p className="title-lockup text-[2.3rem]">The Imposter</p>
         </div>
 
         <motion.div
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7, ease: "backOut" }}
+          initial={{ opacity: 0, scale: 0.6, rotate: -8 }}
+          animate={{ opacity: 1, scale: 1, rotate: 0 }}
+          transition={{ duration: 0.8, ease: "backOut" }}
           className="relative"
         >
+          <motion.div
+            animate={{ scale: [1, 1.06, 1], opacity: [0.35, 0.55, 0.35] }}
+            transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute inset-0 scale-[1.2] rounded-[2.5rem] bg-rose/50 blur-2xl"
+          />
           <div
             className="relative w-48 h-48 rounded-[2rem] border border-[#242424]/15 bg-rose
             flex flex-col items-center justify-center glow-rose"
           >
             <motion.span
               initial={{ rotate: -180, scale: 0 }}
-              animate={{ rotate: 0, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.3, ease: "backOut" }}
+              animate={{ rotate: [0, 8, -8, 0], scale: 1 }}
+              transition={{ duration: 1.8, delay: 0.3, ease: "easeInOut" }}
               className="text-5xl mb-2"
             >
               🕵️
@@ -74,7 +82,7 @@ export default function RevealPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5 }}
-          className="flex flex-col items-center gap-2"
+          className="flex flex-col items-center gap-2 w-full"
         >
           {imposters.map((imp, i) => (
             <motion.h2
@@ -82,7 +90,7 @@ export default function RevealPage() {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.6 + i * 0.2 }}
-              className="text-3xl font-black text-foreground"
+              className="text-3xl font-black text-foreground rounded-full border border-border bg-white px-5 py-2 shadow-[0_6px_14px_rgba(37,35,33,0.06)]"
             >
               {imp.name}
             </motion.h2>
@@ -102,10 +110,12 @@ export default function RevealPage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1 }}
-          className="text-center"
+          className="text-center rounded-[1.4rem] border border-border bg-white px-6 py-5 shadow-[0_8px_20px_rgba(37,35,33,0.06)]"
         >
-          <p className="text-foreground/50 text-sm mb-2">The word was</p>
-          <p className="text-2xl font-bold text-mint glow-text-mint">
+          <p className="text-foreground/50 text-sm mb-2 uppercase tracking-[0.18em]">
+            The word was
+          </p>
+          <p className="text-3xl font-black text-foreground">
             {gameState.word}
           </p>
           <div className="flex items-center justify-center gap-1.5 mt-2">
@@ -126,7 +136,7 @@ export default function RevealPage() {
           <GlowButton
             color="nova"
             size="lg"
-            className="w-full text-center"
+            className="block w-full max-w-64 mx-auto text-center"
             onClick={handlePlayAgain}
           >
             Play Again
@@ -134,7 +144,7 @@ export default function RevealPage() {
           <GlowButton
             color="ember"
             size="md"
-            className="w-full text-center"
+            className="block w-full max-w-64 mx-auto text-center"
             onClick={handleNewGame}
           >
             New Game

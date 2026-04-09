@@ -62,8 +62,11 @@ export default function PlayPage() {
     <PageWrapper className="flex flex-col items-center justify-center px-6 safe-top safe-bottom">
       <div className="max-w-sm w-full flex flex-col items-center gap-5">
         <div className="text-center pt-2">
-          <p className="title-lockup text-[2.9rem]">Imposter</p>
-          <p className="title-lockup text-[2.9rem]">Who?</p>
+          <div className="flex items-center justify-center gap-3 mb-1">
+            <span className="text-2xl">🟠</span>
+            <p className="title-lockup text-[2.45rem]">OrangeBall</p>
+          </div>
+          <p className="title-lockup text-[2.3rem]">The Imposter</p>
         </div>
         <AnimatePresence mode="wait">
           {isDiscussion ? (
@@ -203,17 +206,6 @@ export default function PlayPage() {
                         </p>
                       </div>
                     </div>
-
-                    <div
-                      className="absolute bottom-4 left-1/2 -translate-x-1/2
-                      px-3 py-1.5 rounded-full bg-surface-light border border-border
-                      flex items-center gap-1.5"
-                    >
-                      <span className="text-sm">{gameState.categoryIcon}</span>
-                      <span className="text-[11px] text-foreground/40">
-                        {gameState.categoryName}
-                      </span>
-                    </div>
                   </div>
 
                   <div
@@ -225,14 +217,14 @@ export default function PlayPage() {
                       transform: "rotateY(180deg)",
                     }}
                   >
-                    <div className="relative z-10 flex flex-col items-center gap-4 px-6 text-center">
-                      <p className="text-[2rem] font-black text-foreground uppercase">
+                    <div className="relative z-10 flex flex-col items-center gap-5 px-6 text-center w-full">
+                      <p className="text-[2rem] font-black text-foreground uppercase leading-none">
                         {currentPlayer.name}
                       </p>
 
                       {role.isImposter ? (
                         <>
-                          <div className="rounded-2xl border border-[#242424] bg-white px-4 py-3 shadow-[0_6px_14px_rgba(37,35,33,0.08)]">
+                          <div className="rounded-2xl border border-[#242424] bg-white px-4 py-3 shadow-[0_6px_14px_rgba(37,35,33,0.08)] max-w-[12rem]">
                             <p className="text-xl font-black text-[#ff3d30] leading-tight uppercase">
                               You Are The Imposter!
                             </p>
@@ -256,18 +248,10 @@ export default function PlayPage() {
                         </>
                       ) : (
                         <>
-                          <div className="rounded-2xl border border-[#242424] bg-white px-5 py-2.5 shadow-[0_6px_14px_rgba(37,35,33,0.08)]">
-                            <p className="text-2xl font-black text-foreground text-center">
+                          <div className="rounded-2xl border border-[#242424] bg-white min-w-[8.5rem] px-5 py-2.5 shadow-[0_6px_14px_rgba(37,35,33,0.08)]">
+                            <p className="text-2xl font-black text-foreground text-center leading-none">
                               {role.word}
                             </p>
-                          </div>
-                          <div className="flex items-center gap-1.5 mt-1">
-                            <span className="text-sm">
-                              {gameState.categoryIcon}
-                            </span>
-                            <span className="text-xs text-foreground/40">
-                              {gameState.categoryName}
-                            </span>
                           </div>
                         </>
                       )}
@@ -279,7 +263,7 @@ export default function PlayPage() {
               <GlowButton
                 color="nova"
                 size="lg"
-                className="w-[68%] text-center"
+                className="block w-full max-w-48 mx-auto text-center"
                 onClick={handleNext}
               >
                 {isLast ? "Start Discussion" : "Next Player"}
@@ -331,7 +315,7 @@ function ConfirmRevealButton({ onConfirm }: { onConfirm: () => void }) {
     <GlowButton
       color="rose"
       size="lg"
-      className="w-full text-center"
+      className="block w-full max-w-64 mx-auto text-center"
       onClick={() => setConfirming(true)}
     >
       🔍 Reveal Imposter
