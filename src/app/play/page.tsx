@@ -113,7 +113,11 @@ export default function PlayPage() {
             >
               <motion.div
                 animate={{ scale: [1, 1.1, 1] }}
-                transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+                transition={{
+                  duration: 2.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
                 className="text-6xl drop-shadow-[0_0_30px_rgba(168,85,247,0.3)]"
               >
                 💬
@@ -129,14 +133,17 @@ export default function PlayPage() {
                 transition={{ delay: 0.3 }}
                 className="glass rounded-2xl px-5 py-3"
               >
-                <p className="text-xs text-foreground/40 mb-1">Start describing from</p>
+                <p className="text-xs text-foreground/40 mb-1">
+                  Start describing from
+                </p>
                 <p className="text-lg font-bold text-ember glow-text-ember">
                   {gameState.playerOrder[0].name}
                 </p>
               </motion.div>
 
               <p className="text-foreground/50 text-sm max-w-xs">
-                Everyone describe your word without saying it. Find the imposter!
+                Everyone describe your word without saying it. Find the
+                imposter!
               </p>
 
               {/* Player order list */}
@@ -152,9 +159,10 @@ export default function PlayPage() {
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ delay: 0.1 * i }}
                       className={`px-3 py-1.5 rounded-full text-sm border backdrop-blur-sm
-                        ${i === 0
-                          ? "bg-ember/15 border-ember/40 text-ember"
-                          : "bg-glass border-border text-foreground/60"
+                        ${
+                          i === 0
+                            ? "bg-ember/15 border-ember/40 text-ember"
+                            : "bg-glass border-border text-foreground/60"
                         }`}
                     >
                       {i + 1}. {p.name}
@@ -230,23 +238,33 @@ export default function PlayPage() {
                     strokeLinecap="round"
                     strokeDasharray={circumference}
                     strokeDashoffset={circumference * (1 - holdProgress)}
-                    style={{ transition: isHolding ? "none" : "stroke-dashoffset 0.3s ease-out" }}
+                    style={{
+                      transition: isHolding
+                        ? "none"
+                        : "stroke-dashoffset 0.3s ease-out",
+                    }}
                   />
                 </svg>
 
                 {/* Inner content */}
                 <motion.div
-                  animate={isHolding ? { scale: 0.95 } : { scale: [1, 1.03, 1] }}
-                  transition={isHolding ? { duration: 0.15 } : { duration: 3, repeat: Infinity }}
+                  animate={
+                    isHolding ? { scale: 0.95 } : { scale: [1, 1.03, 1] }
+                  }
+                  transition={
+                    isHolding
+                      ? { duration: 0.15 }
+                      : { duration: 3, repeat: Infinity }
+                  }
                   className={`w-44 h-44 rounded-full border-2 flex flex-col items-center justify-center gap-3
                     cursor-pointer transition-all duration-300 backdrop-blur-sm
-                    ${isHolding
-                      ? "border-nova/60 bg-nova/10 glow-nova"
-                      : "border-border bg-glass hover:border-nova/30"}`}
+                    ${
+                      isHolding
+                        ? "border-nova/60 bg-nova/10 glow-nova"
+                        : "border-border bg-glass hover:border-nova/30"
+                    }`}
                 >
-                  <span className="text-4xl">
-                    {isHolding ? "👁️" : "🔒"}
-                  </span>
+                  <span className="text-4xl">{isHolding ? "👁️" : "🔒"}</span>
                   <p className="text-foreground/50 text-sm font-medium">
                     {isHolding ? "Keep holding..." : "Hold to reveal"}
                   </p>
@@ -282,7 +300,11 @@ export default function PlayPage() {
                 >
                   <motion.span
                     animate={{ rotate: [0, 10, -10, 0] }}
-                    transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                    transition={{
+                      duration: 1.5,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
                     className="text-6xl"
                   >
                     🕵️

@@ -49,7 +49,8 @@ export default function SetupPage() {
   const addPlayer = useCallback(() => {
     const name = newPlayerName.trim();
     if (!name || name.length > 15) return;
-    if (players.some((p) => p.name.toLowerCase() === name.toLowerCase())) return;
+    if (players.some((p) => p.name.toLowerCase() === name.toLowerCase()))
+      return;
     const id = generateId();
     const newPlayer = { id, name };
     const updated = [...players, newPlayer];

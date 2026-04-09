@@ -34,11 +34,12 @@ export function initGame(config: GameConfig): GameState {
     selectedCategories = [allCategories[idx]];
   } else {
     selectedCategories = allCategories.filter((c) =>
-      config.categoryIds.includes(c.id)
+      config.categoryIds.includes(c.id),
     );
   }
 
-  if (selectedCategories.length === 0) throw new Error("No categories selected");
+  if (selectedCategories.length === 0)
+    throw new Error("No categories selected");
 
   // Pick a random category from selected, then a random word
   const category = selectedCategories[secureRandom(selectedCategories.length)];
@@ -49,7 +50,9 @@ export function initGame(config: GameConfig): GameState {
 
   // Cryptographically select imposters from shuffled order
   const imposterPool = secureShuffle(playerOrder);
-  const imposterIds = imposterPool.slice(0, config.imposterCount).map((p) => p.id);
+  const imposterIds = imposterPool
+    .slice(0, config.imposterCount)
+    .map((p) => p.id);
 
   return {
     config,
@@ -65,7 +68,7 @@ export function initGame(config: GameConfig): GameState {
 
 export function getPlayerRole(
   state: GameState,
-  playerIndex: number
+  playerIndex: number,
 ): { isImposter: boolean; word: string } {
   const player = state.playerOrder[playerIndex];
   const isImposter = state.imposterIds.includes(player.id);

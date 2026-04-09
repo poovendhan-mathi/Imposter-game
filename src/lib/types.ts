@@ -28,4 +28,10 @@ export interface GameState {
   revealedPlayers: string[];
 }
 
-export const DEFAULT_PRESET_NAMES = ["Pooven", "Hari", "Sanja", "Akash", "Sathish"];
+export const DEFAULT_PRESET_NAMES = [
+  "Pooven",
+  "Hari",
+  "Sanja",
+  "Akash",
+  "Sathish",
+];

@@ -97,11 +97,7 @@ export default function CategoriesPage() {
               Your Categories
             </h2>
             {customCategories.map((cat) => (
-              <motion.div
-                key={cat.id}
-                layout
-                className="glass rounded-2xl p-4"
-              >
+              <motion.div key={cat.id} layout className="glass rounded-2xl p-4">
                 <div className="flex items-center justify-between mb-2">
                   <div className="flex items-center gap-2">
                     <span className="text-xl">{cat.icon}</span>
@@ -166,10 +162,7 @@ export default function CategoriesPage() {
             Built-in Categories
           </h2>
           {(builtInCategories as Category[]).map((cat) => (
-            <div
-              key={cat.id}
-              className="glass rounded-2xl p-4 opacity-80"
-            >
+            <div key={cat.id} className="glass rounded-2xl p-4 opacity-80">
               <div className="flex items-center gap-2 mb-2">
                 <span className="text-xl">{cat.icon}</span>
                 <span className="font-semibold text-foreground/70">
@@ -264,7 +257,16 @@ function CategoryForm({
   };
 
   const commonIcons = [
-    "📝", "🎮", "🎯", "⭐", "🔥", "💎", "🎭", "🌍", "🍿", "🎪",
+    "📝",
+    "🎮",
+    "🎯",
+    "⭐",
+    "🔥",
+    "💎",
+    "🎭",
+    "🌍",
+    "🍿",
+    "🎪",
   ];
 
   return (
