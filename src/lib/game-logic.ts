@@ -23,8 +23,18 @@ export function getAllCategories(): Category[] {
 
 /** Cryptographically secure random integer in [0, max) */
 function secureRandom(max: number): number {
+  if (max <= 0) {
+    throw new Error("secureRandom max must be greater than 0");
+  }
+
   const array = new Uint32Array(1);
-  crypto.getRandomValues(array);
+  const maxUint32 = 0x100000000;
+  const limit = maxUint32 - (maxUint32 % max);
+
+  do {
+    crypto.getRandomValues(array);
+  } while (array[0] >= limit);
+
   return array[0] % max;
 }
 
@@ -36,6 +46,13 @@ function secureShuffle<T>(arr: T[]): T[] {
     [a[i], a[j]] = [a[j], a[i]];
   }
   return a;
+}
+
+function securePickDistinctIndices(length: number, count: number): number[] {
+  return secureShuffle(Array.from({ length }, (_, index) => index)).slice(
+    0,
+    count,
+  );
 }
 
 export function initGame(config: GameConfig): GameState {
@@ -64,11 +81,11 @@ export function initGame(config: GameConfig): GameState {
   // Cryptographically shuffle players for play order
   const playerOrder = secureShuffle(config.players);
 
-  // Select imposters independently from the reveal order
-  const imposterPool = secureShuffle(config.players);
-  const imposterIds = imposterPool
-    .slice(0, config.imposterCount)
-    .map((p) => p.id);
+  // Select imposter positions directly from the randomized order.
+  const imposterIds = securePickDistinctIndices(
+    playerOrder.length,
+    config.imposterCount,
+  ).map((index) => playerOrder[index].id);
 
   // Pick a separate random discussion starter so the first speaker is independent too
   const discussionStarterIndex = secureRandom(playerOrder.length);

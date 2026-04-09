@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import PageWrapper from "@/components/ui/PageWrapper";
@@ -13,14 +13,44 @@ export default function PlayPage() {
   const { gameState, nextPlayer, setPhase } = useGame();
   const [isPeeking, setIsPeeking] = useState(false);
   const [hasPeekedCurrent, setHasPeekedCurrent] = useState(false);
+  const peekStartedAtRef = useRef<number | null>(null);
+  const revealButtonTimeoutRef = useRef<number | null>(null);
 
   const handlePeekStart = useCallback(() => {
+    if (revealButtonTimeoutRef.current !== null) {
+      window.clearTimeout(revealButtonTimeoutRef.current);
+      revealButtonTimeoutRef.current = null;
+    }
+    peekStartedAtRef.current = performance.now();
     setIsPeeking(true);
-    setHasPeekedCurrent(true);
   }, []);
 
   const handlePeekEnd = useCallback(() => {
+    const startedAt = peekStartedAtRef.current;
     setIsPeeking(false);
+    peekStartedAtRef.current = null;
+
+    if (hasPeekedCurrent || startedAt === null) {
+      return;
+    }
+
+    const peekDuration = performance.now() - startedAt;
+    if (peekDuration < 140) {
+      return;
+    }
+
+    revealButtonTimeoutRef.current = window.setTimeout(() => {
+      setHasPeekedCurrent(true);
+      revealButtonTimeoutRef.current = null;
+    }, 180);
+  }, [hasPeekedCurrent]);
+
+  useEffect(() => {
+    return () => {
+      if (revealButtonTimeoutRef.current !== null) {
+        window.clearTimeout(revealButtonTimeoutRef.current);
+      }
+    };
   }, []);
 
   const handleNext = useCallback(() => {
@@ -72,6 +102,11 @@ export default function PlayPage() {
   useEffect(() => {
     setIsPeeking(false);
     setHasPeekedCurrent(false);
+    peekStartedAtRef.current = null;
+    if (revealButtonTimeoutRef.current !== null) {
+      window.clearTimeout(revealButtonTimeoutRef.current);
+      revealButtonTimeoutRef.current = null;
+    }
   }, [currentPlayer.id]);
 
   return (
@@ -268,9 +303,14 @@ export default function PlayPage() {
 
               {hasPeekedCurrent && (
                 <motion.div
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.16, ease: "easeOut" }}
+                  initial={{
+                    opacity: 0,
+                    y: 14,
+                    scale: 0.96,
+                    filter: "blur(4px)",
+                  }}
+                  animate={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
+                  transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
                   className="w-full flex justify-center"
                 >
                   <GlowButton
