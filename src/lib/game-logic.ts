@@ -58,6 +58,7 @@ export function initGame(config: GameConfig): GameState {
     config,
     word,
     categoryName: category.name,
+    categoryIcon: category.icon,
     imposterIds,
     playerOrder,
     currentPlayerIndex: 0,
@@ -69,11 +70,12 @@ export function initGame(config: GameConfig): GameState {
 export function getPlayerRole(
   state: GameState,
   playerIndex: number,
-): { isImposter: boolean; word: string } {
+): { isImposter: boolean; word: string; hint: string } {
   const player = state.playerOrder[playerIndex];
   const isImposter = state.imposterIds.includes(player.id);
   return {
     isImposter,
     word: isImposter ? "" : state.word,
+    hint: state.categoryName,
   };
 }

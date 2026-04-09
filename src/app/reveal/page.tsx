@@ -105,9 +105,12 @@ export default function RevealPage() {
           <p className="text-2xl font-bold text-mint glow-text-mint">
             {gameState.word}
           </p>
-          <p className="text-foreground/30 text-xs mt-1">
-            {gameState.categoryName}
-          </p>
+          <div className="flex items-center justify-center gap-1.5 mt-2">
+            <span className="text-sm">{gameState.categoryIcon}</span>
+            <p className="text-foreground/30 text-xs">
+              {gameState.categoryName}
+            </p>
+          </div>
         </motion.div>
 
         {/* Actions */}

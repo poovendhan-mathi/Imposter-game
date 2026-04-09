@@ -21,6 +21,7 @@ export interface GameState {
   config: GameConfig;
   word: string;
   categoryName: string;
+  categoryIcon: string;
   imposterIds: string[];
   playerOrder: Player[];
   currentPlayerIndex: number;
