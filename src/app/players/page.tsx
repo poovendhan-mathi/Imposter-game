@@ -120,11 +120,11 @@ export default function PlayersPage() {
           <div className="flex items-center gap-3">
             <button
               onClick={() => router.push("/setup")}
-              className="text-foreground/50 hover:text-nova transition-colors text-xl cursor-pointer"
+              className="text-foreground/45 hover:text-foreground transition-colors text-xl cursor-pointer"
             >
               ←
             </button>
-            <h1 className="text-2xl font-bold text-nova glow-text-nova">
+            <h1 className="text-2xl font-bold text-foreground">
               Players
             </h1>
           </div>
@@ -165,7 +165,7 @@ export default function PlayersPage() {
             onKeyDown={(e) => e.key === "Enter" && addPlayer()}
             placeholder="Enter player name..."
             maxLength={15}
-            className="flex-1 bg-surface border border-border rounded-2xl px-4 py-2.5
+            className="flex-1 bg-white border border-border rounded-2xl px-4 py-2.5
               text-sm text-foreground placeholder:text-foreground/30
               focus:border-nova/40 focus:outline-none transition-colors"
           />
@@ -193,8 +193,8 @@ export default function PlayersPage() {
                   animate={{ opacity: 1, scale: 1 }}
                   whileTap={{ scale: 0.9 }}
                   onClick={() => addSuggested(name)}
-                  className="px-3 py-1.5 rounded-full border border-dashed border-nova/25
-                    bg-nova/5 text-xs text-nova/70 hover:bg-nova/10 hover:border-nova/40
+                  className="px-3 py-1.5 rounded-full border border-dashed border-border-light
+                    bg-white text-xs text-foreground/65 hover:bg-surface-light hover:border-foreground/25
                     transition-all cursor-pointer"
                 >
                   + {name}

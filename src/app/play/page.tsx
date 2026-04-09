@@ -50,12 +50,21 @@ export default function PlayPage() {
     gameState.currentPlayerIndex >= gameState.playerOrder.length - 1;
   const totalPlayers = gameState.playerOrder.length;
   const currentIdx = gameState.currentPlayerIndex;
+  const discussionOrder = gameState.playerOrder.map(
+    (_, index) =>
+      gameState.playerOrder[
+        (gameState.discussionStarterIndex + index) % gameState.playerOrder.length
+      ],
+  );
 
   return (
     <PageWrapper className="flex flex-col items-center justify-center px-6 safe-top safe-bottom">
-      <div className="max-w-sm w-full">
+      <div className="max-w-sm w-full flex flex-col items-center gap-5">
+        <div className="text-center pt-2">
+          <p className="title-lockup text-[2.9rem]">Imposter</p>
+          <p className="title-lockup text-[2.9rem]">Who?</p>
+        </div>
         <AnimatePresence mode="wait">
-          {/* DISCUSSION PHASE */}
           {isDiscussion ? (
             <motion.div
               key="discussion"
@@ -63,26 +72,12 @@ export default function PlayPage() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-              className="flex flex-col items-center gap-6 text-center"
+              className="flex flex-col items-center gap-6 text-center w-full"
             >
-              {/* Pulsing icon */}
-              <motion.div
-                animate={{ scale: [1, 1.1, 1] }}
-                transition={{
-                  duration: 2.5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                className="text-6xl drop-shadow-[0_0_30px_rgba(168,85,247,0.3)]"
-              >
-                💬
-              </motion.div>
-
-              <h2 className="text-3xl font-bold text-nova glow-text-nova">
+              <h2 className="text-3xl font-bold text-foreground">
                 Discussion Time!
               </h2>
 
-              {/* Category badge */}
               <div className="glass rounded-full px-5 py-2 inline-flex items-center gap-2">
                 <span className="text-lg">{gameState.categoryIcon}</span>
                 <span className="text-sm font-medium text-foreground/60">
@@ -90,18 +85,17 @@ export default function PlayPage() {
                 </span>
               </div>
 
-              {/* First player callout */}
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="glass rounded-2xl px-5 py-3"
+                className="glass rounded-2xl px-5 py-3 w-full"
               >
                 <p className="text-xs text-foreground/40 mb-1">
                   Start describing from
                 </p>
-                <p className="text-lg font-bold text-ember glow-text-ember">
-                  {gameState.playerOrder[0].name}
+                <p className="text-lg font-bold text-foreground">
+                  {discussionOrder[0].name}
                 </p>
               </motion.div>
 
@@ -110,23 +104,22 @@ export default function PlayPage() {
                 imposter!
               </p>
 
-              {/* Player order */}
               <div className="w-full glass rounded-2xl p-4">
                 <h3 className="text-xs font-semibold text-foreground/40 uppercase tracking-wider mb-3">
                   Discussion Order
                 </h3>
                 <div className="flex flex-wrap gap-2 justify-center">
-                  {gameState.playerOrder.map((p, i) => (
+                  {discussionOrder.map((p, i) => (
                     <motion.span
                       key={p.id}
                       initial={{ opacity: 0, scale: 0.8 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ delay: 0.1 * i }}
-                      className={`px-3 py-1.5 rounded-full text-sm border backdrop-blur-sm
+                      className={`px-3 py-1.5 rounded-full text-sm border
                         ${
                           i === 0
-                            ? "bg-ember/15 border-ember/40 text-ember"
-                            : "bg-glass border-border text-foreground/60"
+                            ? "bg-mint border-[#b4e21a] text-foreground font-bold"
+                            : "bg-white border-border text-foreground/60"
                         }`}
                     >
                       {i + 1}. {p.name}
@@ -140,16 +133,14 @@ export default function PlayPage() {
               </div>
             </motion.div>
           ) : (
-            /* CARD PHASE — hold to peek */
             <motion.div
               key={`card-${currentPlayer.id}`}
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, x: -80 }}
               transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-              className="flex flex-col items-center gap-5"
+              className="flex flex-col items-center gap-5 w-full"
             >
-              {/* Progress dots */}
               <div className="flex items-center gap-2">
                 {gameState.playerOrder.map((p, i) => (
                   <motion.div
@@ -161,68 +152,47 @@ export default function PlayPage() {
                     }}
                     className={`rounded-full transition-colors duration-300 ${
                       i < currentIdx
-                        ? "w-2 h-2 bg-mint"
+                        ? "w-2 h-2 bg-[#1f1f1f]"
                         : i === currentIdx
-                          ? "w-3 h-3 bg-nova glow-nova"
+                          ? "w-3 h-3 bg-[#1f1f1f] glow-nova"
                           : "w-2 h-2 bg-foreground/20"
                     }`}
                   />
                 ))}
               </div>
 
-              {/* Player info */}
               <div className="text-center">
                 <p className="text-foreground/40 text-xs mb-1 uppercase tracking-wider">
                   Player {currentIdx + 1} of {totalPlayers}
                 </p>
-                <h2 className="text-3xl font-bold text-nova glow-text-nova">
+                <h2 className="text-3xl font-bold text-foreground">
                   {currentPlayer.name}
                 </h2>
               </div>
 
-              {/* The card — flips between front (hidden) and back (word) */}
               <div
-                className="relative w-72 h-96 select-none"
+                className="relative w-[15.5rem] h-[18.5rem] select-none"
                 style={{ perspective: "900px", touchAction: "none" }}
                 onPointerDown={() => setIsPeeking(true)}
                 onPointerUp={() => setIsPeeking(false)}
                 onPointerLeave={() => setIsPeeking(false)}
                 onPointerCancel={() => setIsPeeking(false)}
               >
-                {/* Card container with 3D flip */}
                 <motion.div
                   animate={{ rotateY: isPeeking ? 180 : 0 }}
                   transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
                   className="relative w-full h-full"
                   style={{ transformStyle: "preserve-3d" }}
                 >
-                  {/* FRONT — hidden face */}
                   <div
-                    className="absolute inset-0 rounded-3xl border-2 border-nova/20
-                      bg-gradient-to-br from-surface via-surface-light to-surface
+                    className="absolute inset-0 rounded-[1.2rem] border border-[#242424]/12 bg-white
                       flex flex-col items-center justify-center gap-5 overflow-hidden"
                     style={{ backfaceVisibility: "hidden" }}
                   >
-                    {/* Decorative gradient orb */}
-                    <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-nova/10 rounded-full blur-3xl" />
-                    <div className="absolute bottom-0 right-0 translate-x-1/4 translate-y-1/4 w-32 h-32 bg-ember/8 rounded-full blur-3xl" />
-
-                    <div className="relative z-10 flex flex-col items-center gap-4">
-                      <motion.div
-                        animate={{
-                          scale: [1, 1.1, 1],
-                          rotate: [0, 5, -5, 0],
-                        }}
-                        transition={{
-                          duration: 3,
-                          repeat: Infinity,
-                          ease: "easeInOut",
-                        }}
-                        className="w-20 h-20 rounded-full bg-nova/10 border border-nova/20
-                          flex items-center justify-center"
-                      >
+                    <div className="relative z-10 flex flex-col items-center gap-4 px-6">
+                      <div className="w-20 h-20 rounded-full bg-[#f4f4f1] border border-border flex items-center justify-center">
                         <span className="text-4xl">🔒</span>
-                      </motion.div>
+                      </div>
                       <div className="text-center">
                         <p className="text-foreground/60 text-sm font-semibold">
                           Hold to Peek
@@ -233,9 +203,8 @@ export default function PlayPage() {
                       </div>
                     </div>
 
-                    {/* Category tag on front */}
                     <div className="absolute bottom-4 left-1/2 -translate-x-1/2
-                      px-3 py-1.5 rounded-full bg-glass border border-border
+                      px-3 py-1.5 rounded-full bg-surface-light border border-border
                       flex items-center gap-1.5"
                     >
                       <span className="text-sm">{gameState.categoryIcon}</span>
@@ -245,80 +214,54 @@ export default function PlayPage() {
                     </div>
                   </div>
 
-                  {/* BACK — revealed word or imposter */}
                   <div
-                    className={`absolute inset-0 rounded-3xl border-2 flex flex-col items-center justify-center
-                      overflow-hidden ${
+                    className={`absolute inset-0 rounded-[1.2rem] border border-[#242424]/12 flex flex-col items-center justify-center overflow-hidden ${
                         role.isImposter
-                          ? "border-rose/60 bg-gradient-to-br from-rose/5 via-surface to-rose/10"
-                          : "border-mint/60 bg-gradient-to-br from-mint/5 via-surface to-mint/10"
+                          ? "bg-rose"
+                          : "bg-ice"
                       }`}
                     style={{
                       backfaceVisibility: "hidden",
                       transform: "rotateY(180deg)",
                     }}
                   >
-                    {/* Background glow */}
-                    {role.isImposter ? (
-                      <div className="absolute inset-0 pointer-events-none">
-                        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-40 h-40 bg-rose/15 rounded-full blur-3xl" />
-                      </div>
-                    ) : (
-                      <div className="absolute inset-0 pointer-events-none">
-                        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-40 h-40 bg-mint/15 rounded-full blur-3xl" />
-                      </div>
-                    )}
-
-                    <div className="relative z-10 flex flex-col items-center gap-4 px-6">
-                      {/* Player name tag */}
-                      <span className="px-3 py-1 rounded-full bg-glass border border-border text-foreground/40 text-xs">
+                    <div className="relative z-10 flex flex-col items-center gap-4 px-6 text-center">
+                      <p className="text-[2rem] font-black text-foreground uppercase">
                         {currentPlayer.name}
-                      </span>
+                      </p>
 
                       {role.isImposter ? (
                         <>
-                          <motion.span
-                            initial={{ scale: 0 }}
-                            animate={{ scale: 1, rotate: [0, 10, -10, 0] }}
-                            transition={{ duration: 0.5, ease: "backOut" }}
-                            className="text-5xl"
-                          >
-                            🕵️
-                          </motion.span>
-                          <p className="text-2xl font-black text-rose glow-text-rose tracking-wide">
-                            IMPOSTER!
-                          </p>
-
-                          {/* HINT — prominent category clue */}
-                          <div className="w-full mt-2 rounded-2xl border border-rose/20 bg-rose/5 px-4 py-3">
-                            <p className="text-[10px] text-rose/50 uppercase tracking-widest font-semibold mb-1.5">
+                          <div className="rounded-2xl border border-[#242424] bg-white px-4 py-3 shadow-[0_6px_14px_rgba(37,35,33,0.08)]">
+                            <p className="text-xl font-black text-[#ff3d30] leading-tight uppercase">
+                              You Are The Imposter!
+                            </p>
+                          </div>
+                          <div className="w-full mt-1 rounded-2xl border border-[#242424]/10 bg-white/55 px-4 py-3">
+                            <p className="text-[10px] text-foreground/45 uppercase tracking-widest font-semibold mb-1.5">
                               Your Hint
                             </p>
                             <div className="flex items-center justify-center gap-2">
                               <span className="text-2xl">{gameState.categoryIcon}</span>
-                              <span className="text-lg font-bold text-rose-light">
+                              <span className="text-lg font-bold text-foreground">
                                 {role.hint}
                               </span>
                             </div>
-                            <p className="text-[10px] text-foreground/30 mt-2 text-center">
+                            <p className="text-[10px] text-foreground/35 mt-2 text-center">
                               Use this to blend in during discussion
                             </p>
                           </div>
                         </>
                       ) : (
                         <>
-                          <p className="text-foreground/40 text-xs uppercase tracking-wider">
-                            Your word is
-                          </p>
-                          <div className="w-full px-5 py-3 rounded-2xl border border-mint/30 bg-mint/5">
-                            <p className="text-2xl font-black text-mint glow-text-mint text-center">
+                          <div className="rounded-2xl border border-[#242424] bg-white px-5 py-2.5 shadow-[0_6px_14px_rgba(37,35,33,0.08)]">
+                            <p className="text-2xl font-black text-foreground text-center">
                               {role.word}
                             </p>
                           </div>
-                          {/* Category badge */}
                           <div className="flex items-center gap-1.5 mt-1">
                             <span className="text-sm">{gameState.categoryIcon}</span>
-                            <span className="text-xs text-foreground/30">
+                            <span className="text-xs text-foreground/40">
                               {gameState.categoryName}
                             </span>
                           </div>
@@ -329,16 +272,15 @@ export default function PlayPage() {
                 </motion.div>
               </div>
 
-              {/* Next player button */}
               <GlowButton
-                color={isLast ? "ember" : "nova"}
+                color="nova"
                 size="lg"
-                className="w-full text-center"
+                className="w-[68%] text-center"
                 onClick={handleNext}
               >
                 {isLast
-                  ? "Start Discussion 💬"
-                  : `Next → ${gameState.playerOrder[currentIdx + 1]?.name}`}
+                  ? "Start Discussion"
+                  : "Next Player"}
               </GlowButton>
             </motion.div>
           )}

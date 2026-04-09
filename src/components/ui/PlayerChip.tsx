@@ -24,11 +24,10 @@ export default function PlayerChip({
       className={`
         inline-flex items-center gap-1.5 px-3 py-2 rounded-full
         border cursor-pointer transition-all duration-300 ease-out text-sm
-        backdrop-blur-sm
         ${
           selected
-            ? "border-nova/60 bg-nova/15 text-nova-light"
-            : "border-border bg-glass text-foreground/60 hover:border-nova/30"
+            ? "border-[#242424] bg-[#f0f0ec] text-foreground shadow-[0_6px_14px_rgba(37,35,33,0.08)]"
+            : "border-border bg-white text-foreground/65 hover:border-nova/30"
         }
       `}
       onClick={onToggle}
@@ -41,7 +40,7 @@ export default function PlayerChip({
             onDelete();
           }}
           className="ml-0.5 w-5 h-5 flex items-center justify-center rounded-full
-            hover:bg-rose/20 text-foreground/40 hover:text-rose transition-colors text-xs"
+            hover:bg-rose/20 text-foreground/40 hover:text-rose-light transition-colors text-xs"
         >
           ✕
         </button>

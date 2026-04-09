@@ -40,17 +40,20 @@ export default function RevealPage() {
   return (
     <PageWrapper className="flex flex-col items-center justify-center px-6 safe-top safe-bottom">
       <div className="max-w-sm w-full flex flex-col items-center gap-8">
-        {/* Spotlight effect */}
+        <div className="text-center">
+          <p className="title-lockup text-[2.9rem]">Imposter</p>
+          <p className="title-lockup text-[2.9rem]">Who?</p>
+        </div>
+
         <motion.div
           initial={{ opacity: 0, scale: 0 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7, ease: "backOut" }}
           className="relative"
         >
-          <div className="absolute inset-0 bg-rose/20 rounded-full blur-3xl scale-150" />
           <div
-            className="relative w-48 h-48 rounded-full border-2 border-rose bg-rose/10
-            flex flex-col items-center justify-center glow-rose backdrop-blur-sm"
+            className="relative w-48 h-48 rounded-[2rem] border border-[#242424]/15 bg-rose
+            flex flex-col items-center justify-center glow-rose"
           >
             <motion.span
               initial={{ rotate: -180, scale: 0 }}
@@ -60,7 +63,7 @@ export default function RevealPage() {
             >
               🕵️
             </motion.span>
-            <p className="text-xs text-rose/60 uppercase tracking-wider">
+            <p className="text-xs text-[#5b303f] uppercase tracking-wider font-bold">
               {imposters.length > 1 ? "Imposters" : "Imposter"}
             </p>
           </div>
@@ -79,7 +82,7 @@ export default function RevealPage() {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.6 + i * 0.2 }}
-              className="text-3xl font-black text-rose glow-text-rose"
+              className="text-3xl font-black text-foreground"
             >
               {imp.name}
             </motion.h2>
@@ -126,7 +129,7 @@ export default function RevealPage() {
             className="w-full text-center"
             onClick={handlePlayAgain}
           >
-            🔄 Play Again
+            Play Again
           </GlowButton>
           <GlowButton
             color="ember"
@@ -134,7 +137,7 @@ export default function RevealPage() {
             className="w-full text-center"
             onClick={handleNewGame}
           >
-            ⚙️ New Game
+            New Game
           </GlowButton>
           <button
             onClick={() => {

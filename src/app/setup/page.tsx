@@ -87,29 +87,28 @@ export default function SetupPage() {
   return (
     <PageWrapper className="flex flex-col px-5 py-6 safe-top safe-bottom">
       <div className="max-w-lg mx-auto w-full flex flex-col gap-6">
-        {/* Header */}
         <div className="flex items-center gap-3">
           <button
             onClick={() => router.push("/")}
-            className="text-foreground/50 hover:text-nova transition-colors text-xl cursor-pointer"
+            className="text-foreground/45 hover:text-foreground transition-colors text-xl cursor-pointer"
           >
             ←
           </button>
-          <h1 className="text-2xl font-bold text-nova glow-text-nova">
-            Game Setup
-          </h1>
+          <div>
+            <p className="title-lockup text-[2.3rem]">Imposter</p>
+            <p className="title-lockup text-[2.3rem]">Who?</p>
+          </div>
         </div>
 
-        {/* Players — tap to manage */}
         <motion.button
           whileTap={{ scale: 0.98 }}
           onClick={() => router.push("/players")}
           className="flex items-center justify-between w-full px-4 py-4 rounded-2xl
-            border border-border bg-glass backdrop-blur-sm cursor-pointer
-            hover:border-nova/30 transition-all"
+            border border-border bg-white cursor-pointer hover:border-nova/30 transition-all shadow-[0_8px_18px_rgba(37,35,33,0.05)]"
         >
           <div className="flex flex-col items-start gap-1">
-            <h2 className="text-sm font-semibold text-foreground/70 uppercase tracking-wider">
+            <h2 className="text-sm font-semibold text-foreground/55 uppercase tracking-wider flex items-center gap-2">
+              <span>✋</span>
               Players
             </h2>
             <span className="text-sm text-foreground/50">
@@ -120,7 +119,7 @@ export default function SetupPage() {
           </div>
           <div className="flex items-center gap-2">
             <span
-              className={`text-lg font-bold ${selectedPlayers.length >= 3 ? "text-nova" : "text-rose/70"}`}
+              className={`text-lg font-bold ${selectedPlayers.length >= 3 ? "text-foreground" : "text-rose-light"}`}
             >
               {selectedPlayers.length}
             </span>
@@ -136,7 +135,7 @@ export default function SetupPage() {
         {/* Category Section — multi-select */}
         <section className="flex flex-col gap-3">
           <div className="flex items-center justify-between">
-            <h2 className="text-sm font-semibold text-foreground/70 uppercase tracking-wider">
+            <h2 className="text-sm font-semibold text-foreground/55 uppercase tracking-wider">
               Categories
             </h2>
             <span className="text-xs text-foreground/30">
@@ -169,7 +168,7 @@ export default function SetupPage() {
 
         {/* Imposter Count */}
         <section className="flex flex-col gap-3">
-          <h2 className="text-sm font-semibold text-foreground/70 uppercase tracking-wider">
+          <h2 className="text-sm font-semibold text-foreground/55 uppercase tracking-wider">
             Imposters
           </h2>
           <div className="flex gap-3">
@@ -180,12 +179,11 @@ export default function SetupPage() {
                 onClick={() => setImposterCount(count)}
                 disabled={count === 2 && selectedPlayers.length < 5}
                 className={`
-                  flex-1 py-3 rounded-2xl border text-center font-semibold transition-all duration-300 cursor-pointer
-                  backdrop-blur-sm
+                  flex-1 py-3 rounded-2xl border text-center font-semibold transition-all duration-300 cursor-pointer bg-white
                   ${
                     imposterCount === count
-                      ? "border-rose/60 bg-rose/15 text-rose glow-rose"
-                      : "border-border bg-glass text-foreground/50 hover:border-rose/30"
+                      ? "border-[#242424] text-foreground shadow-[0_8px_18px_rgba(37,35,33,0.08)]"
+                      : "border-border text-foreground/55 hover:border-foreground/25"
                   }
                   ${
                     count === 2 && selectedPlayers.length < 5
@@ -209,16 +207,16 @@ export default function SetupPage() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="pt-2"
+          className="pt-4 flex justify-center"
         >
           <GlowButton
             color="mint"
             size="lg"
-            className="w-full text-center"
+            className="w-[86%] text-center"
             onClick={handleStart}
             disabled={!canStart}
           >
-            🚀 Start Game
+            Start Game
           </GlowButton>
         </motion.div>
       </div>

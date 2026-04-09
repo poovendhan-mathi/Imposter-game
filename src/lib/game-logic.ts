@@ -48,11 +48,14 @@ export function initGame(config: GameConfig): GameState {
   // Cryptographically shuffle players for play order
   const playerOrder = secureShuffle(config.players);
 
-  // Cryptographically select imposters from shuffled order
-  const imposterPool = secureShuffle(playerOrder);
+  // Select imposters independently from the reveal order
+  const imposterPool = secureShuffle(config.players);
   const imposterIds = imposterPool
     .slice(0, config.imposterCount)
     .map((p) => p.id);
+
+  // Pick a separate random discussion starter so the first speaker is independent too
+  const discussionStarterIndex = secureRandom(playerOrder.length);
 
   return {
     config,
@@ -61,6 +64,7 @@ export function initGame(config: GameConfig): GameState {
     categoryIcon: category.icon,
     imposterIds,
     playerOrder,
+    discussionStarterIndex,
     currentPlayerIndex: 0,
     phase: "ready",
     revealedPlayers: [],

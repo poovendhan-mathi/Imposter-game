@@ -24,6 +24,7 @@ export interface GameState {
   categoryIcon: string;
   imposterIds: string[];
   playerOrder: Player[];
+  discussionStarterIndex: number;
   currentPlayerIndex: number;
   phase: "ready" | "reveal" | "transition" | "discussion" | "result";
   revealedPlayers: string[];

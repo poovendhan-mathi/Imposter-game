@@ -14,33 +14,33 @@ interface GlowButtonProps {
 
 const colorMap = {
   nova: {
-    bg: "bg-nova/10 hover:bg-nova/20",
-    border: "border-nova/40",
-    text: "text-nova-light",
+    bg: "bg-[#242424] hover:bg-[#111111]",
+    border: "border-[#242424]",
+    text: "text-white",
     glow: "glow-nova",
   },
   ember: {
-    bg: "bg-ember/10 hover:bg-ember/20",
-    border: "border-ember/40",
-    text: "text-ember-light",
+    bg: "bg-white hover:bg-surface-light",
+    border: "border-border-light",
+    text: "text-foreground",
     glow: "glow-ember",
   },
   ice: {
-    bg: "bg-ice/10 hover:bg-ice/20",
-    border: "border-ice/40",
-    text: "text-ice-light",
+    bg: "bg-ice hover:bg-ice/85",
+    border: "border-[#5bd1d5]",
+    text: "text-[#103133]",
     glow: "glow-ice",
   },
   rose: {
-    bg: "bg-rose/10 hover:bg-rose/20",
-    border: "border-rose/40",
+    bg: "bg-white hover:bg-[#fff7fb]",
+    border: "border-rose-light/40",
     text: "text-rose-light",
     glow: "glow-rose",
   },
   mint: {
-    bg: "bg-mint/10 hover:bg-mint/20",
-    border: "border-mint/40",
-    text: "text-mint",
+    bg: "bg-mint hover:bg-[#b8f212]",
+    border: "border-[#b4e21a]",
+    text: "text-[#1b1b1b]",
     glow: "glow-mint",
   },
 };
@@ -71,10 +71,9 @@ export default function GlowButton({
       className={`
         ${c.bg} ${c.border} ${c.text}
         ${s}
-        border rounded-2xl font-semibold
-        backdrop-blur-sm
+        border rounded-2xl font-extrabold uppercase tracking-wide
         transition-all duration-300 ease-out
-        ${disabled ? "opacity-30 cursor-not-allowed" : `${c.glow} cursor-pointer active:brightness-110`}
+        ${disabled ? "opacity-30 cursor-not-allowed" : `${c.glow} cursor-pointer active:brightness-105`}
         ${className}
       `}
     >
