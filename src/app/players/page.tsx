@@ -124,9 +124,7 @@ export default function PlayersPage() {
             >
               ←
             </button>
-            <h1 className="text-2xl font-bold text-foreground">
-              Players
-            </h1>
+            <h1 className="text-2xl font-bold text-foreground">Players</h1>
           </div>
           <span className="text-sm text-foreground/50">
             {selectedCount} selected

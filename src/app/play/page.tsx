@@ -53,7 +53,8 @@ export default function PlayPage() {
   const discussionOrder = gameState.playerOrder.map(
     (_, index) =>
       gameState.playerOrder[
-        (gameState.discussionStarterIndex + index) % gameState.playerOrder.length
+        (gameState.discussionStarterIndex + index) %
+          gameState.playerOrder.length
       ],
   );
 
@@ -203,7 +204,8 @@ export default function PlayPage() {
                       </div>
                     </div>
 
-                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2
+                    <div
+                      className="absolute bottom-4 left-1/2 -translate-x-1/2
                       px-3 py-1.5 rounded-full bg-surface-light border border-border
                       flex items-center gap-1.5"
                     >
@@ -216,10 +218,8 @@ export default function PlayPage() {
 
                   <div
                     className={`absolute inset-0 rounded-[1.2rem] border border-[#242424]/12 flex flex-col items-center justify-center overflow-hidden ${
-                        role.isImposter
-                          ? "bg-rose"
-                          : "bg-ice"
-                      }`}
+                      role.isImposter ? "bg-rose" : "bg-ice"
+                    }`}
                     style={{
                       backfaceVisibility: "hidden",
                       transform: "rotateY(180deg)",
@@ -242,7 +242,9 @@ export default function PlayPage() {
                               Your Hint
                             </p>
                             <div className="flex items-center justify-center gap-2">
-                              <span className="text-2xl">{gameState.categoryIcon}</span>
+                              <span className="text-2xl">
+                                {gameState.categoryIcon}
+                              </span>
                               <span className="text-lg font-bold text-foreground">
                                 {role.hint}
                               </span>
@@ -260,7 +262,9 @@ export default function PlayPage() {
                             </p>
                           </div>
                           <div className="flex items-center gap-1.5 mt-1">
-                            <span className="text-sm">{gameState.categoryIcon}</span>
+                            <span className="text-sm">
+                              {gameState.categoryIcon}
+                            </span>
                             <span className="text-xs text-foreground/40">
                               {gameState.categoryName}
                             </span>
@@ -278,9 +282,7 @@ export default function PlayPage() {
                 className="w-[68%] text-center"
                 onClick={handleNext}
               >
-                {isLast
-                  ? "Start Discussion"
-                  : "Next Player"}
+                {isLast ? "Start Discussion" : "Next Player"}
               </GlowButton>
             </motion.div>
           )}
