@@ -64,7 +64,8 @@ export default function PlayPage() {
   const discussionOrder = gameState.playerOrder.map(
     (_, index) =>
       gameState.playerOrder[
-        (gameState.discussionStarterIndex + index) % gameState.playerOrder.length
+        (gameState.discussionStarterIndex + index) %
+          gameState.playerOrder.length
       ],
   );
 
