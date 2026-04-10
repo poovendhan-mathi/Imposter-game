@@ -17,8 +17,13 @@ export default function Home() {
         >
           <div className="text-center">
             <div className="flex items-center justify-center gap-3 mb-1">
-              <span className="text-[2.2rem]">🟠</span>
-              <p className="title-lockup text-[3rem]">OrangeBall</p>
+              <img
+                src="/pool-ball-yellow-stripe.svg"
+                alt=""
+                aria-hidden="true"
+                className="h-[2.2rem] w-[2.2rem]"
+              />
+              <p className="title-lockup title-lockup-pool text-[3rem]">OrangeBall</p>
             </div>
             <p className="title-lockup text-[2.75rem]">The Imposter</p>
           </div>
@@ -31,7 +36,7 @@ export default function Home() {
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
           transition={{ duration: 0.9, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-          className="w-full h-px bg-gradient-to-r from-transparent via-border-light to-transparent"
+          className="w-full h-px bg-linear-to-r from-transparent via-border-light to-transparent"
         />
 
         <motion.p

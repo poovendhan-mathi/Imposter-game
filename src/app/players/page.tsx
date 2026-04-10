@@ -132,8 +132,13 @@ export default function PlayersPage() {
             </button>
             <div>
               <div className="flex items-center gap-2 mb-0.5">
-                <span className="text-xl">🟠</span>
-                <p className="title-lockup text-[1.85rem]">OrangeBall</p>
+                <img
+                  src="/pool-ball-yellow-stripe.svg"
+                  alt=""
+                  aria-hidden="true"
+                  className="h-5 w-5"
+                />
+                <p className="title-lockup title-lockup-pool text-[1.85rem]">OrangeBall</p>
               </div>
               <p className="title-lockup text-[1.75rem]">Players</p>
             </div>

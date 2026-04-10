@@ -1,0 +1,60 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Yellow striped pool ball</title>
+  <desc id="desc">A high-resolution yellow stripe pool ball icon with realistic shading and highlights.</desc>
+
+  <defs>
+    <radialGradient id="baseShade" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(420 350) rotate(40) scale(520)">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.45" stop-color="#F6F2EA"/>
+      <stop offset="0.78" stop-color="#E8DED1"/>
+      <stop offset="1" stop-color="#CBBEAE"/>
+    </radialGradient>
+
+    <linearGradient id="stripe" x1="130" y1="512" x2="894" y2="512" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#A86F00"/>
+      <stop offset="0.12" stop-color="#D8A10D"/>
+      <stop offset="0.34" stop-color="#F4CF45"/>
+      <stop offset="0.52" stop-color="#FFE778"/>
+      <stop offset="0.72" stop-color="#F2C830"/>
+      <stop offset="0.9" stop-color="#D19807"/>
+      <stop offset="1" stop-color="#8F5D00"/>
+    </linearGradient>
+
+    <radialGradient id="stripeGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(512 512) rotate(90) scale(170 430)">
+      <stop offset="0" stop-color="#FFF4A7" stop-opacity="0.65"/>
+      <stop offset="1" stop-color="#FFF4A7" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="shine" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(355 305) rotate(35) scale(205)">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.95"/>
+      <stop offset="0.58" stop-color="#FFFFFF" stop-opacity="0.26"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="numberDisc" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(512 512) rotate(90) scale(125)">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#EEE6DA"/>
+    </radialGradient>
+
+    <filter id="drop" x="80" y="80" width="864" height="864" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="18" stdDeviation="16" flood-color="#000000" flood-opacity="0.22"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#drop)">
+    <circle cx="512" cy="512" r="380" fill="url(#baseShade)"/>
+
+    <path d="M132 512C132 430.8 197.8 365 279 365H745C826.2 365 892 430.8 892 512C892 593.2 826.2 659 745 659H279C197.8 659 132 593.2 132 512Z" fill="url(#stripe)"/>
+    <path d="M132 512C132 430.8 197.8 365 279 365H745C826.2 365 892 430.8 892 512C892 593.2 826.2 659 745 659H279C197.8 659 132 593.2 132 512Z" fill="url(#stripeGlow)"/>
+
+    <circle cx="512" cy="512" r="380" stroke="#A3988B" stroke-width="6" stroke-opacity="0.4"/>
+
+    <circle cx="512" cy="512" r="118" fill="url(#numberDisc)"/>
+    <circle cx="512" cy="512" r="118" stroke="#C3B6A8" stroke-width="4"/>
+
+    <text x="512" y="548" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="164" font-weight="700" fill="#1F1C18">9</text>
+
+    <ellipse cx="353" cy="303" rx="190" ry="146" fill="url(#shine)"/>
+    <ellipse cx="665" cy="734" rx="175" ry="82" fill="#7A6136" fill-opacity="0.12"/>
+  </g>
+</svg>

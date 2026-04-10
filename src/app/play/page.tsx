@@ -114,8 +114,13 @@ export default function PlayPage() {
       <div className="max-w-sm w-full flex flex-col items-center gap-5">
         <div className="text-center pt-2">
           <div className="flex items-center justify-center gap-3 mb-1">
-            <span className="text-2xl">🟠</span>
-            <p className="title-lockup text-[2.45rem]">OrangeBall</p>
+            <img
+              src="/pool-ball-yellow-stripe.svg"
+              alt=""
+              aria-hidden="true"
+              className="h-8 w-8"
+            />
+            <p className="title-lockup title-lockup-pool text-[2.45rem]">OrangeBall</p>
           </div>
           <p className="title-lockup text-[2.3rem]">The Imposter</p>
         </div>
