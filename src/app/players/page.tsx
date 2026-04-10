@@ -138,7 +138,9 @@ export default function PlayersPage() {
                   aria-hidden="true"
                   className="h-5 w-5"
                 />
-                <p className="title-lockup title-lockup-pool text-[1.85rem]">OrangeBall</p>
+                <p className="title-lockup title-lockup-pool text-[1.85rem]">
+                  OrangeBall
+                </p>
               </div>
               <p className="title-lockup text-[1.75rem]">Players</p>
             </div>

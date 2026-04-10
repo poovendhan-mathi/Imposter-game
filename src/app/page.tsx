@@ -23,7 +23,9 @@ export default function Home() {
                 aria-hidden="true"
                 className="h-[2.2rem] w-[2.2rem]"
               />
-              <p className="title-lockup title-lockup-pool text-[3rem]">OrangeBall</p>
+              <p className="title-lockup title-lockup-pool text-[3rem]">
+                OrangeBall
+              </p>
             </div>
             <p className="title-lockup text-[2.75rem]">The Imposter</p>
           </div>

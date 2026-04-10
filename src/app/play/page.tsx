@@ -120,7 +120,9 @@ export default function PlayPage() {
               aria-hidden="true"
               className="h-8 w-8"
             />
-            <p className="title-lockup title-lockup-pool text-[2.45rem]">OrangeBall</p>
+            <p className="title-lockup title-lockup-pool text-[2.45rem]">
+              OrangeBall
+            </p>
           </div>
           <p className="title-lockup text-[2.3rem]">The Imposter</p>
         </div>

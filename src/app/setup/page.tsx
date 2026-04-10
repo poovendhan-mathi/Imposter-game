@@ -102,7 +102,9 @@ export default function SetupPage() {
                 aria-hidden="true"
                 className="h-5 w-5"
               />
-              <p className="title-lockup title-lockup-pool text-[1.95rem]">OrangeBall</p>
+              <p className="title-lockup title-lockup-pool text-[1.95rem]">
+                OrangeBall
+              </p>
             </div>
             <p className="title-lockup text-[1.85rem]">The Imposter</p>
           </div>
