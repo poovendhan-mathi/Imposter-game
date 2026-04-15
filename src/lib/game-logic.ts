@@ -78,10 +78,14 @@ export function initGame(config: GameConfig): GameState {
   const wordHint =
     wordHintLookup.get(`${category.id}::${word}`) ?? "Related clue unavailable";
 
-  // Cryptographically shuffle players for play order
-  const playerOrder = secureShuffle(config.players);
+  // Keep players in their original added order, but pick a random starting index
+  const startIndex = secureRandom(config.players.length);
+  const playerOrder = [
+    ...config.players.slice(startIndex),
+    ...config.players.slice(0, startIndex),
+  ];
 
-  // Select imposter positions directly from the randomized order.
+  // Select imposter positions from the rotated order.
   const imposterIds = securePickDistinctIndices(
     playerOrder.length,
     config.imposterCount,
